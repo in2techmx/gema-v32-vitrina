@@ -593,6 +593,72 @@
   white-space: pre-wrap;
 }
 
+/* Acciones de edición y borrado por autor */
+.comment-card__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.btn-card-action {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 5px;
+  color: var(--text-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.btn-card-action:hover {
+  background: var(--surface-1);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.btn-card-action--danger:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.comment-card__edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.comment-card__edit-textarea {
+  width: 100%;
+  min-height: 60px;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: var(--r-sm);
+  background: var(--surface-1);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.comment-card__edit-textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.comment-card__edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
 /* Formulario para añadir nueva anotación */
 .comment-form {
   margin-top: auto;

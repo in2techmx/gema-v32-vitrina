@@ -20,6 +20,9 @@
   // Bloque actualmente enfocado (null = ver todas)
   var currentTarget = null; // { blockId, sectionNum, sectionTitle, chapterSlug, chapterTitle, quote }
 
+  // ID de la nota en edición inline (null = ninguna)
+  var editingCommentId = null;
+
   function getComments() {
     var list = [];
     try {
@@ -60,6 +63,20 @@
            alias === 'in2techmx@gmail.com' ||
            alias === 'arnaiz.art@gmail.com' ||
            n.indexOf('arnaiz') >= 0;
+  }
+
+  function canEditOrDeleteComment(user, c) {
+    if (!user || !c) return false;
+    if (isArturoArnaiz(user)) return true;
+    var userKey = (user.key || '').toLowerCase();
+    var authorKey = (c.authorKey || '').toLowerCase();
+    if (userKey && authorKey && userKey === authorKey) return true;
+    var userEmail = (user.email || '').toLowerCase();
+    var authorEmail = (c.authorEmail || '').toLowerCase();
+    if (userEmail && authorEmail && userEmail === authorEmail) return true;
+    var userAlias = (user.aliasEmail || '').toLowerCase();
+    if (userAlias && authorEmail && userAlias === authorEmail) return true;
+    return false;
   }
 
   function clearAllComments() {
@@ -306,12 +323,98 @@
 
     var jsonBtn = document.getElementById('exportJsonBtn');
     if (jsonBtn) jsonBtn.addEventListener('click', exportCommentsToJson);
+
+    var threadList = document.getElementById('commentsThreadList');
+    if (threadList) {
+      threadList.addEventListener('click', handleCommentAction);
+      threadList.addEventListener('keydown', handleCommentKeydown);
+    }
+  }
+
+  function handleCommentAction(e) {
+    var btn = e.target.closest('[data-comment-action]');
+    if (!btn) return;
+    var act = btn.getAttribute('data-comment-action');
+    var id = btn.getAttribute('data-comment-id');
+    if (!act || !id) return;
+
+    var list = getComments();
+    var idx = -1;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].id === id) {
+        idx = i;
+        break;
+      }
+    }
+    if (idx === -1) return;
+
+    var currentUser = (global.GEMA_AUTH && global.GEMA_AUTH.getUser) ? global.GEMA_AUTH.getUser() : null;
+    if (!canEditOrDeleteComment(currentUser, list[idx])) {
+      alert('Solo el autor de la nota o el Administrador Master puede modificarla.');
+      return;
+    }
+
+    if (act === 'delete') {
+      if (confirm('¿Deseas eliminar permanentemente esta anotación?')) {
+        list.splice(idx, 1);
+        if (editingCommentId === id) editingCommentId = null;
+        saveComments(list);
+      }
+    } else if (act === 'edit') {
+      editingCommentId = id;
+      renderCommentsList();
+      var editCard = document.querySelector('.comment-card[data-comment-id="' + id + '"]');
+      if (editCard) {
+        var txt = editCard.querySelector('.comment-card__edit-textarea');
+        if (txt) {
+          txt.focus();
+          txt.setSelectionRange(txt.value.length, txt.value.length);
+        }
+      }
+    } else if (act === 'cancel-edit') {
+      editingCommentId = null;
+      renderCommentsList();
+    } else if (act === 'save-edit') {
+      var card = document.querySelector('.comment-card[data-comment-id="' + id + '"]');
+      if (card) {
+        var input = card.querySelector('.comment-card__edit-textarea');
+        if (input) {
+          var val = input.value.trim();
+          if (!val) {
+            alert('El texto de la anotación no puede estar vacío.');
+            return;
+          }
+          list[idx].content = val;
+          list[idx].formattedDate = formatNow() + ' (editado)';
+          list[idx].editedAt = new Date().toISOString();
+          editingCommentId = null;
+          saveComments(list);
+        }
+      }
+    }
+  }
+
+  function handleCommentKeydown(e) {
+    if (e.target && e.target.classList.contains('comment-card__edit-textarea')) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        var card = e.target.closest('.comment-card');
+        if (card) {
+          var saveBtn = card.querySelector('[data-comment-action="save-edit"]');
+          if (saveBtn) saveBtn.click();
+        }
+      } else if (e.key === 'Escape') {
+        editingCommentId = null;
+        renderCommentsList();
+      }
+    }
   }
 
   function renderCommentsList() {
     var container = document.getElementById('commentsThreadList');
     if (!container) return;
 
+    var currentUser = (global.GEMA_AUTH && global.GEMA_AUTH.getUser) ? global.GEMA_AUTH.getUser() : null;
     var all = getComments();
     var filtered = all.filter(function (c) {
       // Filtro de autor
@@ -351,6 +454,35 @@
         quoteHtml = '<div style="font-size:11px; font-style:italic; color:var(--text-3); margin-top:2px; padding-left:6px; border-left:2px solid var(--line);">“' + esc(c.blockQuote.slice(0, 110)) + '…”</div>';
       }
 
+      var canManage = canEditOrDeleteComment(currentUser, c);
+
+      var actionsHtml = '';
+      if (canManage && editingCommentId !== c.id) {
+        actionsHtml = 
+          '<div class="comment-card__actions">' +
+            '<button type="button" class="btn-card-action" data-comment-action="edit" data-comment-id="' + esc(c.id) + '" title="Editar anotación">' +
+              '<span>✏️</span> <span>Editar</span>' +
+            '</button>' +
+            '<button type="button" class="btn-card-action btn-card-action--danger" data-comment-action="delete" data-comment-id="' + esc(c.id) + '" title="Eliminar anotación">' +
+              '<span>🗑</span> <span>Borrar</span>' +
+            '</button>' +
+          '</div>';
+      }
+
+      var bodyHtml = '';
+      if (editingCommentId === c.id) {
+        bodyHtml = 
+          '<div class="comment-card__edit-form" data-comment-edit-id="' + esc(c.id) + '">' +
+            '<textarea class="comment-card__edit-textarea" rows="3" required>' + esc(c.content) + '</textarea>' +
+            '<div class="comment-card__edit-actions">' +
+              '<button type="button" class="btn btn--ghost" data-comment-action="cancel-edit" data-comment-id="' + esc(c.id) + '" style="font-size:10.5px; padding:3px 8px;">Cancelar</button>' +
+              '<button type="button" class="btn" data-comment-action="save-edit" data-comment-id="' + esc(c.id) + '" style="font-size:10.5px; padding:3px 10px;">Guardar cambios</button>' +
+            '</div>' +
+          '</div>';
+      } else {
+        bodyHtml = '<div class="comment-card__body">' + esc(c.content) + '</div>';
+      }
+
       return '<div class="comment-card author-' + esc(k) + '" data-comment-id="' + esc(c.id) + '">' +
         '<div class="comment-card__head">' +
           '<div class="comment-card__author">' +
@@ -360,11 +492,14 @@
               '<div class="comment-card__role">' + esc(c.authorRole) + '</div>' +
             '</div>' +
           '</div>' +
-          '<div class="comment-card__time">' + esc(c.formattedDate) + '</div>' +
+          '<div style="display:flex; align-items:center; gap:8px;">' +
+            '<div class="comment-card__time">' + esc(c.formattedDate) + '</div>' +
+            actionsHtml +
+          '</div>' +
         '</div>' +
         secRef +
         quoteHtml +
-        '<div class="comment-card__body">' + esc(c.content) + '</div>' +
+        bodyHtml +
       '</div>';
     }).join('');
   }
