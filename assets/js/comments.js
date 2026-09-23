@@ -45,8 +45,26 @@
     return list || [];
   }
 
+  function isArturoArnaiz(user) {
+    if (!user) return false;
+    if (global.GEMA_AUTH && typeof global.GEMA_AUTH.isArturoArnaiz === 'function') {
+      return global.GEMA_AUTH.isArturoArnaiz(user);
+    }
+    var k = (user.key || user.authorKey || '').toLowerCase();
+    var em = (user.email || '').toLowerCase();
+    var alias = (user.aliasEmail || '').toLowerCase();
+    var n = (user.name || '').toLowerCase();
+    return k === 'arturo-a' ||
+           em === 'in2techmx@gmail.com' ||
+           em === 'arnaiz.art@gmail.com' ||
+           alias === 'in2techmx@gmail.com' ||
+           alias === 'arnaiz.art@gmail.com' ||
+           n.indexOf('arnaiz') >= 0;
+  }
+
   function clearAllComments() {
     saveComments([]);
+    renderDrawerMarkup();
   }
 
   function saveComments(list) {
@@ -91,6 +109,26 @@
       key: 'arturo-a'
     };
 
+    var isMaster = isArturoArnaiz(currentUser);
+
+    var masterBannerHtml = isMaster
+      ? '<div class="master-clear-banner" style="background:rgba(239,68,68,0.12); border:1.5px solid #ef4444; border-radius:8px; padding:10px 12px; margin:10px 12px 6px; display:flex; align-items:center; justify-content:space-between; gap:10px;">' +
+          '<div style="min-width:0;">' +
+            '<div style="font-weight:700; font-size:12px; color:#f87171; display:flex; align-items:center; gap:6px;">' +
+              '<span>👑 Control Master — Arturo Arnaiz</span>' +
+            '</div>' +
+            '<div style="font-size:11px; color:var(--text-2); margin-top:2px;">Purga total de notas para comenzar de cero.</div>' +
+          '</div>' +
+          '<button type="button" id="masterDrawerClearBtn" style="background:#dc2626; color:#ffffff; font-weight:700; border:none; padding:7px 12px; border-radius:6px; font-size:11px; cursor:pointer; white-space:nowrap; box-shadow:0 2px 4px rgba(220,38,38,0.3);">' +
+            '🗑 Limpiar todo' +
+          '</button>' +
+        '</div>'
+      : '';
+
+    var footerClearBtnHtml = isMaster
+      ? '<button type="button" class="btn btn--ghost" id="clearAllCommentsBtn" title="Vaciar notas y comenzar desde cero" style="color:#ef4444; font-weight:700; font-size:11px;">🗑 Limpiar todo</button>'
+      : '';
+
     var targetBlockHtml = '';
     if (currentTarget) {
       targetBlockHtml = 
@@ -113,6 +151,8 @@
         '</h2>' +
         '<button class="comments-drawer__close" type="button" id="closeCommentsBtn" title="Cerrar (Esc)">&times;</button>' +
       '</div>' +
+
+      masterBannerHtml +
 
       '<div class="comments-filter-bar">' +
         '<span class="comments-filter-lbl">Socios:</span>' +
@@ -147,7 +187,7 @@
       '<div class="comments-drawer__foot">' +
         '<button type="button" class="btn btn--ghost" id="exportPdfBtn">📄 Exportar a PDF</button>' +
         '<button type="button" class="btn btn--ghost" id="exportJsonBtn">💾 Respaldo JSON</button>' +
-        '<button type="button" class="btn btn--ghost" id="clearAllCommentsBtn" title="Vaciar notas y comenzar desde cero" style="color:var(--text-3); font-size:11px;">🗑 Limpiar</button>' +
+        footerClearBtnHtml +
       '</div>';
 
     bindDrawerEvents();
@@ -158,6 +198,16 @@
     var closeBtn = document.getElementById('closeCommentsBtn');
     if (closeBtn) {
       closeBtn.addEventListener('click', closeCommentsDrawer);
+    }
+
+    var masterClear = document.getElementById('masterDrawerClearBtn');
+    if (masterClear) {
+      masterClear.addEventListener('click', function () {
+        if (confirm('¿Deseas vaciar y purgar todas las anotaciones para comenzar desde cero?')) {
+          clearAllComments();
+          alert('✓ Se han limpiado todas las anotaciones exitosamente.');
+        }
+      });
     }
 
     var clearBtn = document.getElementById('clearTargetBtn');
@@ -174,8 +224,9 @@
     var clearAllBtn = document.getElementById('clearAllCommentsBtn');
     if (clearAllBtn) {
       clearAllBtn.addEventListener('click', function () {
-        if (confirm('¿Deseas vaciar todas las anotaciones y comenzar desde cero?')) {
+        if (confirm('¿Deseas vaciar y purgar todas las anotaciones para comenzar desde cero?')) {
           clearAllComments();
+          alert('✓ Se han limpiado todas las anotaciones exitosamente.');
         }
       });
     }

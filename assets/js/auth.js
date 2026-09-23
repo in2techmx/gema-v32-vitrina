@@ -94,6 +94,20 @@
     return null;
   }
 
+  function isArturoArnaiz(user) {
+    if (!user) return false;
+    var k = (user.key || '').toLowerCase();
+    var em = (user.email || '').toLowerCase();
+    var alias = (user.aliasEmail || '').toLowerCase();
+    var n = (user.name || '').toLowerCase();
+    return k === 'arturo-a' ||
+           em === 'in2techmx@gmail.com' ||
+           em === 'arnaiz.art@gmail.com' ||
+           alias === 'in2techmx@gmail.com' ||
+           alias === 'arnaiz.art@gmail.com' ||
+           n.indexOf('arnaiz') >= 0;
+  }
+
   function showAuthAlert(htmlContent) {
     var alertEl = document.getElementById('googleAuthAlert');
     if (!alertEl) return;
@@ -367,8 +381,23 @@
         ? '<img src="' + esc(currentUser.picture) + '" class="topbar-user-avatar" alt="' + esc(currentUser.name) + '">'
         : '<span class="topbar-user-avatar" style="background:' + (currentUser.avatarBg || '#9333ea') + ';">' + esc(currentUser.initials || 'AA') + '</span>';
 
+      var isMaster = isArturoArnaiz(currentUser);
+
+      var masterDirectBtn = isMaster
+        ? '<button type="button" class="btn-topbar-master" data-auth-action="master-clear-comments" style="background:#dc2626; color:#ffffff; font-weight:700; border:1px solid #b91c1c; border-radius:6px; font-size:11px; padding:5px 10px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; box-shadow:0 1px 4px rgba(220,38,38,0.4);" title="Vaciar y limpiar todas las anotaciones (Exclusivo Arturo Arnaiz)">' +
+            '<span>🗑 Limpiar notas</span>' +
+          '</button>'
+        : '';
+
+      var masterDropdownBtn = isMaster
+        ? '<button type="button" class="user-dropdown-item user-dropdown-item--danger" data-auth-action="master-clear-comments" style="color:#ef4444; font-weight:700; background:rgba(239, 68, 68, 0.1); border-color:rgba(239, 68, 68, 0.3);">' +
+            '<span>🗑 Limpiar todas las notas (Master)</span>' +
+          '</button>'
+        : '';
+
       container.innerHTML = 
-        '<div class="auth-pill-container" style="position:relative;">' +
+        '<div class="auth-pill-container" style="position:relative; display:flex; align-items:center; gap:6px;">' +
+          masterDirectBtn +
           '<button type="button" class="auth-user-pill" id="authUserPill" data-auth-action="toggle-dropdown">' +
             photoHtml +
             '<div class="auth-user-info">' +
@@ -394,6 +423,7 @@
               '<button type="button" class="user-dropdown-item" data-auth-action="open-modal">' +
                 '<span>🔑 Cambiar de Cuenta Google</span>' +
               '</button>' +
+              masterDropdownBtn +
               '<button type="button" class="user-dropdown-item user-dropdown-item--danger" data-auth-action="logout">' +
                 '<span>🚪 Cerrar Sesión</span>' +
               '</button>' +
@@ -543,6 +573,13 @@
       } else if (act === 'switch-user') {
         var em = target.getAttribute('data-email');
         if (em) switchGoogleUser(em);
+      } else if (act === 'master-clear-comments') {
+        if (confirm('¿Deseas vaciar y purgar todas las anotaciones para comenzar desde cero?')) {
+          if (global.GEMA_COMMENTS && typeof global.GEMA_COMMENTS.clearAllComments === 'function') {
+            global.GEMA_COMMENTS.clearAllComments();
+            alert('✓ Se han limpiado todas las anotaciones exitosamente.');
+          }
+        }
       }
       return;
     }
@@ -574,6 +611,7 @@
       }
       return currentUser;
     },
+    isArturoArnaiz: isArturoArnaiz,
     openGoogleAuthModal: openGoogleAuthModal,
     closeGoogleAuthModal: closeGoogleAuthModal,
     toggleUserDropdown: toggleUserDropdown,
