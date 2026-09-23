@@ -1,0 +1,449 @@
+/* ==========================================================================
+   GEMA V3.2 — comments.css
+   Estilos para el sistema de anotaciones, revisiones por bloque,
+   panel lateral independiente scrolleable y filtros por socio.
+   ========================================================================== */
+
+/* Bloques anotables en el documento */
+.annotatable-block {
+  position: relative;
+  transition: background-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  border-radius: var(--r-sm);
+  padding: 0.15rem 0.35rem;
+  margin: -0.15rem -0.35rem;
+}
+
+.annotatable-block:hover {
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+.annotatable-block.is-active-target {
+  background-color: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 0 2px var(--brand);
+}
+
+/* Indicador y botón flotante de anotación */
+.block-comment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  vertical-align: middle;
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+  line-height: 1;
+}
+
+.annotatable-block:hover .block-comment-btn,
+.block-comment-btn.has-notes {
+  opacity: 1;
+}
+
+.block-comment-btn:hover {
+  background: var(--brand);
+  color: #ffffff;
+  border-color: var(--brand);
+  transform: scale(1.08);
+}
+
+.block-comment-btn.has-notes {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: var(--brand);
+  color: var(--brand-2);
+}
+
+/* Auth Widget en la Topbar */
+.auth-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.auth-user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 6px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.auth-user-chip:hover {
+  border-color: var(--brand);
+}
+
+.auth-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #64748b;
+  overflow: hidden;
+}
+
+.auth-avatar.gema { background: #9333ea; }
+.auth-avatar.arturo-b { background: #059669; }
+.auth-avatar.arturo-a { background: #0284c7; }
+
+/* Menú dropdown de autenticación */
+.auth-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 16px;
+  width: 290px;
+  background: var(--surface-1);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  padding: var(--sp-3);
+  z-index: 1000;
+  display: none;
+}
+
+.auth-dropdown.is-open {
+  display: block;
+}
+
+.auth-dropdown__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-2);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.auth-dropdown__options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: var(--fs-xs);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.auth-option-btn:hover {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--brand);
+}
+
+.auth-option-btn.is-selected {
+  border-color: var(--brand);
+  background: rgba(16, 185, 129, 0.16);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   PANEL LATERAL INDEPENDIENTE SCROLLEABLE DE COMENTARIOS
+   ========================================================================== */
+.comments-drawer {
+  position: fixed;
+  top: var(--topbar-h, 54px);
+  right: 0;
+  bottom: 0;
+  width: 440px;
+  max-width: 95vw;
+  background: var(--surface-1);
+  border-left: 1px solid var(--line-strong);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.28);
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comments-drawer.is-open {
+  transform: translateX(0);
+}
+
+.comments-drawer__head {
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+}
+
+.comments-drawer__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comments-drawer__close {
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--r-sm);
+}
+
+.comments-drawer__close:hover {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+/* Filtros / Toggles de Socio */
+.comments-filter-bar {
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.comments-filter-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--surface-1);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+  user-select: none;
+}
+
+.filter-chip input[type="checkbox"] {
+  margin: 0;
+  accent-color: var(--brand);
+}
+
+.filter-chip.active-gema {
+  border-color: #9333ea;
+  color: #c084fc;
+  background: rgba(147, 51, 234, 0.12);
+}
+
+.filter-chip.active-arturo-b {
+  border-color: #059669;
+  color: #34d399;
+  background: rgba(5, 150, 105, 0.12);
+}
+
+.filter-chip.active-arturo-a {
+  border-color: #0284c7;
+  color: #38bdf8;
+  background: rgba(2, 132, 199, 0.12);
+}
+
+/* Cuerpo scrolleable del cajón */
+.comments-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* Tarjeta del bloque seleccionado */
+.comment-target-block {
+  padding: var(--sp-3);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-xs);
+}
+
+.comment-target-block__meta {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--brand-2);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.comment-target-block__quote {
+  font-style: italic;
+  color: var(--text-2);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Lista de hilos de comentarios */
+.comments-thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.comment-card {
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.comment-card.author-gema { border-left: 3.5px solid #9333ea; }
+.comment-card.author-arturo-b { border-left: 3.5px solid #059669; }
+.comment-card.author-arturo-a { border-left: 3.5px solid #0284c7; }
+
+.comment-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-card__author {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.comment-card__role {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.comment-card__time {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+}
+
+.comment-card__body {
+  font-size: 12.5px;
+  color: var(--text);
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+/* Formulario para añadir nueva anotación */
+.comment-form {
+  margin-top: auto;
+  padding: var(--sp-3);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.comment-form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-form__author-info {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* Botones del pie del drawer */
+.comments-drawer__foot {
+  padding: var(--sp-3) var(--sp-4);
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+  display: flex;
+  gap: 8px;
+}
+
+.comments-drawer__foot .btn {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESIÓN / EXPORTACIÓN EDITORIAL A PDF
+   ========================================================================== */
+@media print {
+  .comments-drawer,
+  .block-comment-btn,
+  .auth-widget,
+  .searchbox,
+  .topbar {
+    display: none !important;
+  }
+}

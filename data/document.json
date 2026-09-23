@@ -124,8 +124,8 @@
       ]
     },
     "closing": "Fin del Documento Ejecutivo — Plan de Negocios, Modelo Agroecológico y Presupuesto Detallado: Gema Agroecología (Nombre Preliminar) (Versión V3.2)",
-    "sourceSha256": "8ee03edaa04e611438363bb0a0ea43a2cab63aa6e7f35a92ba8c1dfa7ba0d1b9",
-    "dataSha256": "15a405077e461714f78a342913abccede30e7d04a7ba878eadeb3cd1917fffe3"
+    "sourceSha256": "e42a6a991c4fe596993035eabeadbf043c8bb88365c16a068b00e7e460b39b68",
+    "dataSha256": "8ae376f80239a77bc50c020ec1c611d680d8f95b65f79fd50acc757ba6df64cd"
   },
   "chapters": [
     {
@@ -657,7 +657,7 @@
                     },
                     {
                       "t": "text",
-                      "v": ") con Denominación de Origen Península de Yucatán, integración de bancales de flores de corte y comestibles de alta gama, y establecimiento del Apiario / Meliponario de Abeja Melipona ("
+                      "v": ") con Denominación de Origen Península de Yucatán, integración de bancales de flores de corte y comestibles de alta gama, establecimiento del Apiario / Meliponario de Abeja Melipona ("
                     },
                     {
                       "t": "em",
@@ -665,7 +665,7 @@
                     },
                     {
                       "t": "text",
-                      "v": " / Xunan Kab) para hábitat de polinizadores nativos y miel medicinal."
+                      "v": " / Xunan Kab) para hábitat de polinizadores nativos y miel medicinal, construcción del Módulo de Talleres Agroecológicos y habilitación del Espacio para Food Trucks & \"Happenings\" Gastronómicos con Chefs."
                     }
                   ]
                 },
@@ -1022,7 +1022,7 @@
         "tables": 1,
         "figures": 2,
         "kpis": 4,
-        "words": 1196
+        "words": 1213
       }
     },
     {
@@ -1555,7 +1555,7 @@
               "tokens": [
                 {
                   "t": "text",
-                  "v": "3. Experiencias Turísticas, Agroturismo & Talleres de Agricultura Regional"
+                  "v": "3. Experiencias Turísticas, Agroturismo, Talleres & Happenings Gastronómicos"
                 }
               ]
             },
@@ -1564,7 +1564,7 @@
               "tokens": [
                 {
                   "t": "text",
-                  "v": "Aprovechando la ubicación estratégica de San Pedro Chimay (a escasos minutos del Anillo Periférico de Mérida y su zona metropolitana), este pilar transforma la finca en un centro vivo de experiencia y divulgación:"
+                  "v": "Aprovechando la ubicación estratégica de San Pedro Chimay (a escasos minutos del Anillo Periférico de Mérida y su zona metropolitana), este pilar transforma la finca en un centro vivo de experiencia, divulgación y gastronomía regenerativa de alto impacto:"
                 }
               ]
             },
@@ -1608,11 +1608,26 @@
                   "tokens": [
                     {
                       "t": "strong",
-                      "v": "Talleres Prácticos Especializados:"
+                      "v": "Módulo de Talleres Prácticos y Escuela de Campo:"
                     },
                     {
                       "t": "text",
-                      "v": " Módulos sabatinos impartidos por Arturo de la Barrera y especialistas invitados sobre cultivo biointensivo, huertos familiares urbanos, elaboración de abonos fermentados (Bocashi) y gastronomía viva para chefs y entusiastas."
+                      "v": " Espacio pedagógico rústico bioclimático equipado para talleres vivenciales impartidos por Arturo de la Barrera y especialistas invitados sobre cultivo biointensivo en suelo Kankab, huertos familiares urbanos, bioinsumos fermentados (Bocashi), manejo agroecológico de plagas y meliponicultura maya."
+                    }
+                  ]
+                },
+                {
+                  "depth": 0,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Espacio para Food Truck & \"Happenings\" Gastronómicos con Chefs:"
+                    },
+                    {
+                      "t": "text",
+                      "v": " Explanada ajardinada sombreada con vegetación nativa y dotada de acometidas sustentables de agua y energía, concebida para la instalación rotativa de Food Trucks gourmet, pop-ups de restaurantes de Mérida y la Riviera Maya, residencias culinarias efímeras con reconocidos Chefs de autor (\"Farm Dinners\"), maridajes botánicos y eventos híbridos culturales-market-happenings (mercado agroecológico, música acústica, catas de miel melipona y comida de campo). Representa una unidad de negocio de alto margen con cobro 100% de contado vía boletaje y consumos directos."
                     }
                   ]
                 }
@@ -2839,7 +2854,7 @@
         "tables": 1,
         "figures": 2,
         "kpis": 0,
-        "words": 2965
+        "words": 3069
       }
     },
     {
@@ -5657,6 +5672,108 @@
               ]
             },
             {
+              "type": "list",
+              "items": [
+                {
+                  "depth": 0,
+                  "ordered": true,
+                  "marker": "4.",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Happenings Gastronómicos, Food Trucks y Eventos Híbridos Culturales-Market en Finca (Modelo Comercial Etapa 1):"
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Una macrotendencia regional en Yucatán es la búsqueda de experiencias inmersivas directas en el campo, donde convergen la alta cocina, el agroturismo vivencial y la cultura viva."
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "En la Etapa 1, Rancho Gema habilita formalmente un "
+                    },
+                    {
+                      "t": "strong",
+                      "v": "Espacio para Food Trucks & Pop-Ups Culinarios"
+                    },
+                    {
+                      "t": "text",
+                      "v": ": una explanada acondicionada con sombra de árboles nativos, mobiliario campestre rústico y acometidas ecológicas de servicio."
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Este espacio funciona bajo dos modalidades comerciales altamente rentables:"
+                    }
+                  ]
+                },
+                {
+                  "depth": 2,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Residencias Efímeras y Cenas con Chefs Invitados (\"Chef Happenings\"):"
+                    },
+                    {
+                      "t": "text",
+                      "v": " Chefs ejecutivos de restaurantes prestigiosos de Mérida, Tulum y Valladolid toman la cocina del rancho o instalan sus food trucks para cenas exclusivas maridadas con flores, microgreens y chiles habaneros recién cosechados."
+                    }
+                  ]
+                },
+                {
+                  "depth": 2,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Jornadas Híbridas Culturales-Market-Happenings:"
+                    },
+                    {
+                      "t": "text",
+                      "v": " Fines de semana temáticos que integran mercadito de productores agroecológicos aliados, música acústica en vivo, exposiciones de arte/artesanía maya, impartición de talleres agroecológicos matutinos y servicio gastronómico en vivo."
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Métricas del Modelo de Negocio:"
+                    },
+                    {
+                      "t": "text",
+                      "v": " Cobro de cuotas de piso o porcentaje de ventas (15% a 20%) a operadores de food trucks, venta anticipada de boletos para experiencias de degustación y venta directa cruzada de canastas, miel melipona y sazonadores botánicos con cobro 100% de contado."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "type": "figures",
               "items": [
                 {
@@ -6703,7 +6820,7 @@
         "tables": 2,
         "figures": 2,
         "kpis": 0,
-        "words": 1630
+        "words": 1831
       }
     },
     {
@@ -14735,6 +14852,7 @@
                     "Expansión gradual a 3.00 HA con fertirriego por goteo para Chile Habanero con DO",
                     "Bancales de flores de especialidad (corte y comestibles para banquetes en haciendas)",
                     "Instalación del Apiario / Meliponario (Melipona beecheii / Xunan Kab)",
+                    "Desarrollo del Módulo de Talleres y Espacio para Food Trucks & \"Happenings\" Gastronómicos con Chefs",
                     "Activación en temporada alta de banquetes y bodas de destino (Wedding Planners)",
                     "Absorción de subsidios gestionados por Dirección Legal (SEDER Peso a Peso, IYEM)",
                     "Logro sostenido del punto de equilibrio operativo mensual (Meses 5 a 9 según escenario)"
@@ -15345,6 +15463,83 @@
                   "tokens": [
                     {
                       "t": "strong",
+                      "v": "Desarrollo del Espacio para Food Trucks & \"Happenings\" Gastronómicos con Chefs:"
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Habilitación paisajística de la explanada sombreada con especies nativas, mobiliario rústico de madera regional y conexiones ecológicas de agua potable y energía eléctrica."
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Convocatoria y selección de los primeros 3 a 5 food trucks gourmet y chefs aliados de Mérida para el ciclo inaugural de \"Happenings en Finca\"."
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Calendario de fines de semana alternos combinando servicio de comida campestre de autor, música acústica y degustación de productos de Rancho Gema."
+                    }
+                  ]
+                },
+                {
+                  "depth": 0,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Construcción y Equipamiento del Módulo de Talleres Agroecológicos:"
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Montaje de la palapa bioclimática / aula viva con mesas de trabajo para 25 participantes, área de demostración biointensiva y laboratorio rústico de bioinsumos."
+                    }
+                  ]
+                },
+                {
+                  "depth": 1,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "text",
+                      "v": "Lanzamiento del programa bimestral de talleres: cultivo de huertos familiares en suelo pedregoso, elaboración de bocashi/biol, cata sensorial de chiles y flores, y meliponicultura maya."
+                    }
+                  ]
+                },
+                {
+                  "depth": 0,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
                       "v": "Temporada Alta de Eventos (Wedding Planners):"
                     }
                   ]
@@ -15465,6 +15660,21 @@
                     {
                       "t": "text",
                       "v": " Envasado selectivo en goteros medicinales y frascos de vidrio herméticos para venta directa en spas boutique, tiendas gourmet y recuerdos nupciales de lujo ($1,500.00 – $2,200.00 MXN/L)."
+                    }
+                  ]
+                },
+                {
+                  "depth": 0,
+                  "ordered": false,
+                  "marker": "-",
+                  "tokens": [
+                    {
+                      "t": "strong",
+                      "v": "Consolidación de Jornadas Culturales-Market-Happenings:"
+                    },
+                    {
+                      "t": "text",
+                      "v": " Frecuencia quincenal de eventos híbridos en finca; cobro de cuota a food trucks, venta de boletos para catas guiadas con chefs y venta directa de canastas y miel a los asistentes."
                     }
                   ]
                 },
@@ -15597,7 +15807,7 @@
         "tables": 0,
         "figures": 0,
         "kpis": 0,
-        "words": 1531
+        "words": 1719
       }
     },
     {

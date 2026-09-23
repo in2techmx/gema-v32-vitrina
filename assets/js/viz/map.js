@@ -143,58 +143,86 @@
     };
   }
 
-  /** Mapa del polígono: 4 franjas de área proporcional + infraestructura. */
-  function polygonSvg(data, activeKey) {
-    var W = 1000, H = 520, PAD = 18;
-    var usable = W - PAD * 2;
-    var total = data.totalHa || 1;
-    var x = PAD;
+  /** Parte un texto en líneas de como mucho `maxCar` caracteres, sin cortar palabras. */
+  function envolver(texto, maxCar) {
+    var palabras = String(texto || '').split(/\s+/).filter(Boolean);
+    var lineas = [];
+    var actual = '';
+    palabras.forEach(function (p) {
+      if (!actual) { actual = p; return; }
+      if ((actual + ' ' + p).length <= maxCar) actual += ' ' + p;
+      else { lineas.push(actual); actual = p; }
+    });
+    if (actual) lineas.push(actual);
+    return lineas;
+  }
 
-    var franjas = data.zones.map(function (z) {
-      var w = (z.ha / total) * usable;
-      // Zona de impacto transparente: ancho EXACTAMENTE proporcional a la superficie
-      // (además agranda el área de clic). El rectángulo visible lleva un margen de 6 px.
+  /**
+   * Mapa del polígono: CUATRO BANDAS HORIZONTALES de ancho completo y alto proporcional
+   * a la superficie.
+   *
+   * Por qué bandas y no franjas verticales: con franjas verticales la zona de 1.00 HA
+   * queda en 96 px y ni su nombre ni el equipamiento caben — las etiquetas se salían de
+   * su franja y se encimaban con la vecina. Con ancho completo la superficie sigue siendo
+   * proporcional (alto × ancho constante) y toda etiqueta tiene 964 px disponibles.
+   */
+  function polygonSvg(data, activeKey) {
+    var W = 1000, H = 560, PAD = 18;
+    var usable = W - PAD * 2;
+    var usableH = H - PAD * 2;
+    var total = data.totalHa || 1;
+    var y = PAD;
+
+    var bandas = data.zones.map(function (z) {
+      var h = (z.ha / total) * usableH;
+      var activa = activeKey === z.key;
+      // La banda de la zona piloto (1.00 HA) mide ~52 px: no caben tres líneas.
+      // El diseño se adapta a la altura para que NINGUNA etiqueta se salga.
+      var compacta = h < 100;
+      var pct = ((z.ha / total) * 100).toFixed(1) + ' % del polígono';
+
+      var textos;
+      if (compacta) {
+        textos = '<text class="zone__num" x="' + (PAD + 16) + '" y="' + (y + h / 2 + 4).toFixed(1) + '">ZONA ' + z.num + '</text>' +
+          '<text class="zone__ha" x="' + (PAD + 68) + '" y="' + (y + h / 2 + 6).toFixed(1) + '">' + z.ha.toFixed(2) + ' HA</text>' +
+          '<text class="zone__label" x="' + (PAD + 160) + '" y="' + (y + h / 2 + 5).toFixed(1) + '">' +
+          esc(z.title.length > 62 ? z.title.slice(0, 60) + '…' : z.title) + '</text>';
+      } else {
+        textos = '<text class="zone__num" x="' + (PAD + 16) + '" y="' + (y + 21).toFixed(1) + '">ZONA ' + z.num + '</text>' +
+          '<text class="zone__ha" x="' + (PAD + 16) + '" y="' + (y + 50).toFixed(1) + '">' + z.ha.toFixed(2) + ' HA</text>' +
+          '<text class="zone__label" x="' + (PAD + 16) + '" y="' + (y + 72).toFixed(1) + '">' +
+          esc(z.title.length > 56 ? z.title.slice(0, 54) + '…' : z.title) + '</text>' +
+          (z.items.length && h > 130
+            ? '<text class="zone__items" x="' + (W - PAD - 16) + '" y="' + (y + 50).toFixed(1) + '" text-anchor="end">' +
+              esc(z.items.length + ' módulos: ' + z.items.map(function (it) {
+                return it.title.split('(')[0].trim();
+              }).join(' · ').slice(0, 92)) + '</text>'
+            : '');
+      }
+
       var g = '<g class="zone" data-zone="' + z.key + '" tabindex="0" role="button" ' +
-        'aria-pressed="' + (activeKey === z.key ? 'true' : 'false') + '" ' +
+        'aria-pressed="' + (activa ? 'true' : 'false') + '" ' +
         'aria-label="' + esc(z.title + ', ' + z.ha + ' hectáreas') + '">' +
-        '<rect class="zone__hit" x="' + x.toFixed(1) + '" y="' + PAD + '" width="' + w.toFixed(2) +
-        '" height="' + (H - PAD * 2) + '" fill="transparent"/>' +
-        '<rect class="zone__box" x="' + (x + 3).toFixed(1) + '" y="' + PAD + '" width="' + Math.max(4, w - 6).toFixed(1) +
-        '" height="' + (H - PAD * 2) + '" rx="10" fill="' + z.color + '" fill-opacity="0.16" ' +
+        '<rect class="zone__box" x="' + PAD + '" y="' + y.toFixed(1) + '" width="' + usable +
+        '" height="' + Math.max(6, h - 5).toFixed(1) + '" rx="10" fill="' + z.color + '" fill-opacity="0.16" ' +
         'stroke="' + z.color + '" stroke-width="1.5"/>' +
-        '<rect class="zone__hatch" x="' + (x + 3).toFixed(1) + '" y="' + PAD + '" width="' + Math.max(4, w - 6).toFixed(1) +
-        '" height="' + (H - PAD * 2) + '" rx="10" fill="url(#hatch)"/>' +
-        '<text class="zone__ha" x="' + (x + w / 2).toFixed(1) + '" y="' + (PAD + 46) + '" text-anchor="middle">' +
-        z.ha.toFixed(2) + ' HA</text>' +
-        '<text class="zone__label" x="' + (x + w / 2).toFixed(1) + '" y="' + (PAD + 70) + '" text-anchor="middle">' +
-        esc(z.title.length > 26 ? z.title.slice(0, 24) + '…' : z.title) + '</text>' +
-        '<text class="zone__num" x="' + (x + 14).toFixed(1) + '" y="' + (H - PAD - 14) + '">ZONA ' + z.num + '</text>' +
+        '<rect class="zone__hatch" x="' + PAD + '" y="' + y.toFixed(1) + '" width="' + usable +
+        '" height="' + Math.max(6, h - 5).toFixed(1) + '" rx="10" fill="url(#hatch)"/>' +
+        textos +
+        '<text class="zone__pct" x="' + (W - PAD - 16) + '" y="' + (y + h / 2 + 4).toFixed(1) + '" text-anchor="end">' +
+        pct + '</text>' +
         '</g>';
-      x += w;
+      y += h;
       return g;
     }).join('');
 
-    // Marcadores de infraestructura dentro de la zona piloto (primera franja)
-    var piloto = data.zones[0];
-    var marcadores = '';
-    if (piloto) {
-      var anchoPiloto = (piloto.ha / total) * usable;
-      var etiquetas = (piloto.items || []).slice(0, 4).map(function (it, i) {
-        var y = PAD + 104 + i * 34;
-        return '<g class="map-pin"><circle cx="' + (PAD + anchoPiloto / 2).toFixed(1) + '" cy="' + y +
-          '" r="4.5" fill="#f59e0b"/>' +
-          '<text class="map-pin__t" x="' + (PAD + anchoPiloto / 2 + 12).toFixed(1) + '" y="' + (y + 4) +
-          '">' + esc(it.title.slice(0, 30)) + '</text></g>';
-      }).join('');
-      marcadores = etiquetas;
-    }
-
     return '<svg class="map" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-      'aria-label="Esquema del polígono de ' + total + ' hectáreas dividido en ' + data.zones.length + ' zonas a área proporcional">' +
+      'aria-label="Esquema del polígono de ' + total + ' hectáreas dividido en ' + data.zones.length +
+      ' bandas de superficie proporcional">' +
       '<defs><pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">' +
       '<line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-opacity="0.10" stroke-width="2"/></pattern></defs>' +
-      franjas + marcadores +
-      '<text class="map__scale" x="' + PAD + '" y="' + (H - 4) + '">Ancho de cada franja proporcional a su superficie · esquema, no a escala cartográfica</text>' +
+      bandas +
+      '<text class="map__scale" x="' + PAD + '" y="' + (H - 3) + '">Alto de cada banda proporcional a su superficie · esquema, no a escala cartográfica</text>' +
       '</svg>';
   }
 

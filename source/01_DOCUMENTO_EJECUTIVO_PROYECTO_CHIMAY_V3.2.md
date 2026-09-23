@@ -246,7 +246,7 @@ El desarrollo territorial se planifica en módulos escalables, iniciando con la 
    - **Nave de Bioinsumos y Compostaje Bocashi:** Módulo de elaboración de enmiendas microbiológicas, biol y biofertilizantes líquidos.
    - **Área de Transformación de Valor Agregado:** Espacio higiénico para deshidratado solar, fermentados y mezclas de sazonadores botánicos.
    - **Bodega de Herramientas e Insumos:** Módulo seguro de almacenamiento y resguardo técnico.
-2. **Etapa 1 (3.00 HA):** Área designada para cultivo intensivo a cielo abierto con fertirriego por goteo de Chile Habanero (*Capsicum chinense*) con Denominación de Origen Península de Yucatán, integración de bancales de flores de corte y comestibles de alta gama, y establecimiento del Apiario / Meliponario de Abeja Melipona (*Melipona beecheii* / Xunan Kab) para hábitat de polinizadores nativos y miel medicinal.
+2. **Etapa 1 (3.00 HA):** Área designada para cultivo intensivo a cielo abierto con fertirriego por goteo de Chile Habanero (*Capsicum chinense*) con Denominación de Origen Península de Yucatán, integración de bancales de flores de corte y comestibles de alta gama, establecimiento del Apiario / Meliponario de Abeja Melipona (*Melipona beecheii* / Xunan Kab) para hábitat de polinizadores nativos y miel medicinal, construcción del Módulo de Talleres Agroecológicos y habilitación del Espacio para Food Trucks & "Happenings" Gastronómicos con Chefs.
 3. **Etapa 2 (4.50 HA):** Expansión agroforestal, huertos de cítricos y construcción de la Nave Agroindustrial de Deshidratado Solar Pasivo con grado alimenticio AISI 304.
 4. **Reserva Ecológica & Amortiguamiento (1.50 HA):** Franja de monte bajo nativo yucateco para preservación de polinizadores nativos (*Melipona beecheii*), barrera rompevientos natural y amortiguamiento biológico (completando exactamente las 10.00 HA totales de Rancho Gema).
 
@@ -379,11 +379,12 @@ Para maximizar el rendimiento por metro cuadrado y erradicar mermas de campo:
 - **Fermentados Vivos Artesanales:** Chucrut vivo no pasteurizado, escabeches tradicionales y encurtidos agridulces de hortalizas y chiles de la región.
 - **Sazonadores Botánicos:** Sales marinas peninsulares (Celestún / Las Coloradas) infusionadas con hierbas aromáticas deshidratadas, pétalos de flores comestibles y pimienta gorda de Tabasco.
 
-#### 3. Experiencias Turísticas, Agroturismo & Talleres de Agricultura Regional
-Aprovechando la ubicación estratégica de San Pedro Chimay (a escasos minutos del Anillo Periférico de Mérida y su zona metropolitana), este pilar transforma la finca en un centro vivo de experiencia y divulgación:
+#### 3. Experiencias Turísticas, Agroturismo, Talleres & Happenings Gastronómicos
+Aprovechando la ubicación estratégica de San Pedro Chimay (a escasos minutos del Anillo Periférico de Mérida y su zona metropolitana), este pilar transforma la finca en un centro vivo de experiencia, divulgación y gastronomía regenerativa de alto impacto:
 - **Agroturismo y Recorridos Vivenciales:** Visitas guiadas para turistas nacionales, extranjeros y escuelas sobre agricultura regenerativa en el suelo pedregoso de Yucatán, historia de los cultivos mayas y manejo del agua en cenotes y pozos kársticos.
 - **Experiencias "De la Mata a la Mesa":** Cosecha personal guiada donde los visitantes recolectan hortalizas, flores y brotes para degustar in situ o preparar alimentos en dinámicas gastronómicas de campo.
-- **Talleres Prácticos Especializados:** Módulos sabatinos impartidos por Arturo de la Barrera y especialistas invitados sobre cultivo biointensivo, huertos familiares urbanos, elaboración de abonos fermentados (Bocashi) y gastronomía viva para chefs y entusiastas.
+- **Módulo de Talleres Prácticos y Escuela de Campo:** Espacio pedagógico rústico bioclimático equipado para talleres vivenciales impartidos por Arturo de la Barrera y especialistas invitados sobre cultivo biointensivo en suelo Kankab, huertos familiares urbanos, bioinsumos fermentados (Bocashi), manejo agroecológico de plagas y meliponicultura maya.
+- **Espacio para Food Truck & "Happenings" Gastronómicos con Chefs:** Explanada ajardinada sombreada con vegetación nativa y dotada de acometidas sustentables de agua y energía, concebida para la instalación rotativa de Food Trucks gourmet, pop-ups de restaurantes de Mérida y la Riviera Maya, residencias culinarias efímeras con reconocidos Chefs de autor ("Farm Dinners"), maridajes botánicos y eventos híbridos culturales-market-happenings (mercado agroecológico, música acústica, catas de miel melipona y comida de campo). Representa una unidad de negocio de alto margen con cobro 100% de contado vía boletaje y consumos directos.
 
 ### 2.3 Estrategia Comercial y Canales de Venta Diversificados (Fase Piloto)
 
@@ -903,6 +904,14 @@ Mérida (designada Ciudad Creativa de la UNESCO en el ámbito de la Gastronomía
 3. **Demanda del Circuito HORECA y Farm-to-Table:**
    - Restaurantes de autor en Mérida (Paseo de Montejo, Santa Lucía, García Ginerés) y hoteles boutique en la Riviera Maya buscan reducir activamente su huella de carbono y sustituir las hortalizas que viajan más de 1,400 km desde Puebla o Guanajuato por proveeduría hiperlocal (*Kilómetro Cero*).
 
+4. **Happenings Gastronómicos, Food Trucks y Eventos Híbridos Culturales-Market en Finca (Modelo Comercial Etapa 1):**
+   - Una macrotendencia regional en Yucatán es la búsqueda de experiencias inmersivas directas en el campo, donde convergen la alta cocina, el agroturismo vivencial y la cultura viva.
+   - En la Etapa 1, Rancho Gema habilita formalmente un **Espacio para Food Trucks & Pop-Ups Culinarios**: una explanada acondicionada con sombra de árboles nativos, mobiliario campestre rústico y acometidas ecológicas de servicio.
+   - Este espacio funciona bajo dos modalidades comerciales altamente rentables:
+     - **Residencias Efímeras y Cenas con Chefs Invitados ("Chef Happenings"):** Chefs ejecutivos de restaurantes prestigiosos de Mérida, Tulum y Valladolid toman la cocina del rancho o instalan sus food trucks para cenas exclusivas maridadas con flores, microgreens y chiles habaneros recién cosechados.
+     - **Jornadas Híbridas Culturales-Market-Happenings:** Fines de semana temáticos que integran mercadito de productores agroecológicos aliados, música acústica en vivo, exposiciones de arte/artesanía maya, impartición de talleres agroecológicos matutinos y servicio gastronómico en vivo.
+   - **Métricas del Modelo de Negocio:** Cobro de cuotas de piso o porcentaje de ventas (15% a 20%) a operadores de food trucks, venta anticipada de boletos para experiencias de degustación y venta directa cruzada de canastas, miel melipona y sazonadores botánicos con cobro 100% de contado.
+
 <div class="figure-grid-2">
     <div class="editorial-figure">
         <img src="../imagenes/bodas_hacienda_chimay.jpg" alt="Banquetes Nupciales y Mixología Botánica en Haciendas">
@@ -1387,6 +1396,7 @@ El despliegue de **Gema Agroecología (Nombre Preliminar)** se ejecuta bajo un e
                     <li>Expansión gradual a 3.00 HA con fertirriego por goteo para Chile Habanero con DO</li>
                     <li>Bancales de flores de especialidad (corte y comestibles para banquetes en haciendas)</li>
                     <li>Instalación del Apiario / Meliponario (<em>Melipona beecheii</em> / Xunan Kab)</li>
+                    <li>Desarrollo del Módulo de Talleres y Espacio para Food Trucks &amp; "Happenings" Gastronómicos con Chefs</li>
                     <li>Activación en temporada alta de banquetes y bodas de destino (Wedding Planners)</li>
                     <li>Absorción de subsidios gestionados por Dirección Legal (SEDER Peso a Peso, IYEM)</li>
                     <li>Logro sostenido del punto de equilibrio operativo mensual (Meses 5 a 9 según escenario)</li>
@@ -1485,6 +1495,13 @@ El despliegue de **Gema Agroecología (Nombre Preliminar)** se ejecuta bajo un e
   - Instalación de las primeras 15 a 20 colmenas tradicionales en hobones y cajas racionales tecnificadas en la zona de amortiguamiento contigua a la reserva.
   - Siembra de los corredores florales melíferos (tajonal, dzidzilché, flor de mayo, campanilla y borraja).
   - Capacitación del personal en manejo de meliponinos y cosecha aséptica de miel medicinal.
+- **Desarrollo del Espacio para Food Trucks & "Happenings" Gastronómicos con Chefs:**
+  - Habilitación paisajística de la explanada sombreada con especies nativas, mobiliario rústico de madera regional y conexiones ecológicas de agua potable y energía eléctrica.
+  - Convocatoria y selección de los primeros 3 a 5 food trucks gourmet y chefs aliados de Mérida para el ciclo inaugural de "Happenings en Finca".
+  - Calendario de fines de semana alternos combinando servicio de comida campestre de autor, música acústica y degustación de productos de Rancho Gema.
+- **Construcción y Equipamiento del Módulo de Talleres Agroecológicos:**
+  - Montaje de la palapa bioclimática / aula viva con mesas de trabajo para 25 participantes, área de demostración biointensiva y laboratorio rústico de bioinsumos.
+  - Lanzamiento del programa bimestral de talleres: cultivo de huertos familiares en suelo pedregoso, elaboración de bocashi/biol, cata sensorial de chiles y flores, y meliponicultura maya.
 - **Temporada Alta de Eventos (Wedding Planners):**
   - Entrada en la temporada alta de bodas de destino en haciendas de Yucatán (octubre a mayo); activación formal de convenios con 3 a 5 wedding planners para proveeduría de flores comestibles, flores de corte bioculturales, brotes vivos y mixología botánica para banquetes en Hacienda San Pedro Chimay, Tahdzibichén y recintos circunvecinos.
   - Suministro de los primeros paquetes de *Wedding Favors* personalizados (mini-frascos de miel melipona y sales de Celestún con etiquetas de los novios).
@@ -1496,6 +1513,7 @@ El despliegue de **Gema Agroecología (Nombre Preliminar)** se ejecuta bajo un e
 #### 2. Semestre 3 (Meses 13 a 18): Producción Plena de Habanero, Miel Melipona y Subsidios
 - **Cosechas de Habanero:** Primera gran cosecha de chile habanero; comercialización en fresco premium para el mercado peninsular y procesamiento de excedentes en hojuelas deshidratadas y pasta pura.
 - **Primera Cosecha de Miel Melipona:** Envasado selectivo en goteros medicinales y frascos de vidrio herméticos para venta directa en spas boutique, tiendas gourmet y recuerdos nupciales de lujo ($1,500.00 – $2,200.00 MXN/L).
+- **Consolidación de Jornadas Culturales-Market-Happenings:** Frecuencia quincenal de eventos híbridos en finca; cobro de cuota a food trucks, venta de boletos para catas guiadas con chefs y venta directa de canastas y miel a los asistentes.
 - **Absorción de Subsidios:** Recepción y aplicación de recursos aprobados por SEDER ("Peso a Peso") e IYEM (Microyuc Verde) gestionados por la Dirección Legal.
 - **Expansión Comercial B2B:** Cartera HORECA consolidada en más de 10 restaurantes gourmet en Mérida y despachos semanales consolidados hacia Riviera Maya / Tulum.
 

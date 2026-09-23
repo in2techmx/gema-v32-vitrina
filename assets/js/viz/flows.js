@@ -159,14 +159,47 @@
       '</g>';
   }
 
-  /** Nodo de flujo con etiqueta y subtítulo. */
+  /** Parte un texto en líneas sin cortar palabras (para etiquetas SVG multilínea). */
+  function envolver(texto, maxCar) {
+    var palabras = String(texto || '').split(/\s+/).filter(Boolean);
+    var lineas = [];
+    var actual = '';
+    palabras.forEach(function (p) {
+      if (!actual) { actual = p; return; }
+      if ((actual + ' ' + p).length <= maxCar) actual += ' ' + p;
+      else { lineas.push(actual); actual = p; }
+    });
+    if (actual) lineas.push(actual);
+    return lineas;
+  }
+
+  /**
+   * Nodo de flujo con etiqueta MULTILÍNEA.
+   *
+   * Las etiquetas de una sola línea se salían del nodo y se encimaban con el vecino
+   * (el caso más grave: «Línea de Transformación Agroindustrial» invadía el nodo de
+   * Experiencias). Aquí se envuelve el texto al ancho útil del nodo y se centra en
+   * vertical, de modo que nunca desborda.
+   */
   function flowNode(x, y, w, h, titulo, sub, color, extra) {
+    var FS = 12.5;
+    var ANCHO_CAR = FS * 0.58;                  // ancho medio por carácter
+    var maxCar = Math.max(8, Math.floor((w - 26) / ANCHO_CAR));
+    var lineas = envolver(titulo, maxCar).slice(0, 3);
+    var lh = 15;
+    var alto = lineas.length * lh + (sub ? 14 : 0);
+    var yIni = y + (h - alto) / 2 + lh * 0.78;
+
+    var tspans = lineas.map(function (l, i) {
+      return '<tspan x="' + (x + w / 2) + '" y="' + (yIni + i * lh).toFixed(1) + '">' + esc(l) + '</tspan>';
+    }).join('');
+
     return '<g class="flow-node"' + (extra || '') + '>' +
       '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="10" fill="' + color +
       '" fill-opacity="0.14" stroke="' + color + '" stroke-width="1.6"/>' +
-      '<text class="flow-node__t" x="' + (x + w / 2) + '" y="' + (y + h / 2 - 3) + '" text-anchor="middle">' + esc(titulo) + '</text>' +
-      (sub ? '<text class="flow-node__s" x="' + (x + w / 2) + '" y="' + (y + h / 2 + 15) + '" text-anchor="middle">' +
-        esc(sub) + '</text>' : '') +
+      '<text class="flow-node__t" text-anchor="middle">' + tspans + '</text>' +
+      (sub ? '<text class="flow-node__s" x="' + (x + w / 2) + '" y="' +
+        (yIni + (lineas.length - 1) * lh + 17).toFixed(1) + '" text-anchor="middle">' + esc(sub) + '</text>' : '') +
       '</g>';
   }
 
@@ -174,23 +207,23 @@
 
   function fundsHtml(data, activeKey) {
     if (!data.levels.length) return '<p class="viz__hint">Sin datos de financiamiento.</p>';
-    var W = 1000, H = 430;
-    var ancho = 288, alto = 96, gap = 32;
+    var W = 1000, H = 470;
+    var ancho = 300, alto = 118, gap = 20;
     var activo = data.levels.filter(function (l) { return l.key === activeKey; })[0] || data.levels[0];
 
     var nodos = data.levels.map(function (l, i) {
-      var x = 30 + i * (ancho + gap);
-      return flowNode(x, 40, ancho, alto, l.title, l.scope, l.color,
+      var x = 20 + i * (ancho + gap);
+      return flowNode(x, 30, ancho, alto, l.title, l.scope, l.color,
         ' data-level="' + l.key + '" tabindex="0" role="button" aria-pressed="' + (l.key === activo.key ? 'true' : 'false') + '"' +
         ' style="opacity:' + (l.key === activo.key ? '1' : '0.55') + '"');
     }).join('');
 
     var enlaces = data.levels.map(function (l, i) {
-      var x1 = 30 + i * (ancho + gap) + ancho / 2;
-      return linkPath(x1, 136, 500, 236, '');
+      var x1 = 20 + i * (ancho + gap) + ancho / 2;
+      return linkPath(x1, 148, 500, 262, '');
     }).join('');
 
-    var destino = flowNode(320, 236, 360, 92, 'Gema Agroecología (Fase Piloto)',
+    var destino = flowNode(320, 262, 360, 112, 'Gema Agroecología (Fase Piloto)',
       'Unidad piloto 1.00 HA + invernadero 200 m²', '#10b981');
 
     var detalle = '<div class="flow-detail"><div class="flow-detail__head">' +
@@ -209,24 +242,28 @@
 
   function chainHtml(data) {
     if (!data.stages.length) return '<p class="viz__hint">Sin datos de cadena de valor.</p>';
-    var W = 1000, H = 250;
-    var ancho = 200, alto = 92, gap = 34;
+    var W = 1000, H = 290;
+    var ancho = 216, alto = 124, gap = 20;
     var nodos = data.stages.map(function (s, i) {
-      var x = 24 + i * (ancho + gap);
-      return flowNode(x, 74, ancho, alto, s.title, (s.subs.length ? s.subs.length + ' líneas' : ''), '#10b981',
+      var x = 18 + i * (ancho + gap);
+      return flowNode(x, 70, ancho, alto, s.title, (s.subs.length ? s.subs.length + ' líneas de trabajo' : ''), '#10b981',
         ' data-stage="' + i + '" tabindex="0" role="button" aria-pressed="false"');
     }).join('');
     var enlaces = [];
     for (var i = 0; i < data.stages.length - 1; i++) {
-      var x1 = 24 + i * (ancho + gap) + ancho;
-      enlaces.push(linkPath(x1, 120, x1 + gap, 120, ''));
+      var x1 = 18 + i * (ancho + gap) + ancho;
+      enlaces.push(linkPath(x1, 132, x1 + gap, 132, ''));
     }
-    var canales = flowNode(24 + data.stages.length * (ancho + gap), 74, ancho, alto,
+    var xUltimo = 18 + data.stages.length * (ancho + gap);
+    var canales = flowNode(xUltimo, 70, Math.min(ancho + 40, W - 18 - xUltimo), alto,
       data.channels.length + ' canales comerciales', 'venta y cobro', '#f59e0b');
+    enlaces.push(linkPath(xUltimo - gap, 132, xUltimo, 132, ''));
 
     return '<svg class="flow" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
       'aria-label="Cadena de valor: etapas productivas hasta los canales comerciales">' +
-      enlaces.join('') + nodos + canales + '</svg>' +
+      enlaces.join('') + nodos + canales +
+      '<text class="map__scale" x="18" y="' + (H - 14) + '">Cada etapa alimenta a la siguiente · destinos comerciales a la derecha</text>' +
+      '</svg>' +
       '<div class="flow-stages">' + data.stages.map(function (s, i) {
         return '<div class="flow-stage"><h5 class="flow-stage__t">' + (i + 1) + '. ' + esc(s.title) + '</h5>' +
           '<ul class="flow-stage__list">' + s.subs.slice(0, 6).map(function (x) {
@@ -242,21 +279,23 @@
 
   function treasuryHtml(data) {
     if (!data.levels.length) return '<p class="viz__hint">Sin datos de tesorería.</p>';
-    var W = 1000, H = 156;
-    var ancho = 288, gap = 32;
+    var W = 1000, H = 190;
+    var ancho = 300, gap = 20;
     var nodos = data.levels.map(function (l, i) {
-      var x = 30 + i * (ancho + gap);
-      return flowNode(x, 26, ancho, 104, l.badge + ' — ' + l.limit,
-        (l.executor || '').slice(0, 40), ['#10b981', '#0284c7', '#7c3aed'][i % 3]);
+      var x = 20 + i * (ancho + gap);
+      return flowNode(x, 30, ancho, 116, l.badge + ' — ' + l.limit,
+        (l.executor || '').slice(0, 42), ['#10b981', '#0284c7', '#7c3aed'][i % 3]);
     }).join('');
     var enlaces = [];
     for (var i = 0; i < data.levels.length - 1; i++) {
-      var x1 = 30 + i * (ancho + gap) + ancho;
-      enlaces.push(linkPath(x1, 78, x1 + gap, 78, 'escala'));
+      var x1 = 20 + i * (ancho + gap) + ancho;
+      enlaces.push(linkPath(x1, 88, x1 + gap, 88, 'escala'));
     }
     return '<svg class="flow" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
       'aria-label="Niveles de autorización del gasto, de menor a mayor monto">' +
-      enlaces.join('') + nodos + '</svg>' +
+      enlaces.join('') + nodos +
+      '<text class="map__scale" x="20" y="' + (H - 12) + '">A mayor monto, más firmas y controles</text>' +
+      '</svg>' +
       '<div class="flow-ladder">' + data.levels.map(function (l) {
         return '<div class="flow-rung"><div class="flow-rung__head"><span class="chip chip--mono">' + esc(l.badge) + '</span>' +
           '<span class="chip chip--accent">' + esc(l.limit) + '</span></div>' +

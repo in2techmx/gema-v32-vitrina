@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="assets/css/map.css">
 <link rel="stylesheet" href="assets/css/flows.css">
 <link rel="stylesheet" href="assets/css/pedagogy.css">
+<link rel="stylesheet" href="assets/css/comments.css">
 </head>
 <body>
 <a class="skip-link" href="#app">Saltar al contenido</a>
@@ -41,6 +42,8 @@
     <button class="btn btn--ghost" id="glossaryToggle" type="button" aria-controls="glossaryDrawer" aria-expanded="false">Glosario</button>
     <button class="btn btn--ghost" id="helpToggle" type="button" aria-controls="helpDrawer" aria-expanded="false">Atajos <kbd class="sc-key" style="padding:0 .3rem">?</kbd></button>
     <button class="btn btn--ghost" id="themeToggle" type="button">Tema claro</button>
+    <button class="btn btn--ghost" id="commentsToggleBtn" type="button" aria-controls="commentsDrawer" aria-expanded="false" title="Abrir panel de revisiones y anotaciones">💬 Revisiones</button>
+    <div class="auth-widget" id="authTopbarWidget"></div>
     <a class="btn" href="source/DOCUMENTO_EJECUTIVO_PROYECTO_CHIMAY_V3.2.pdf" target="_blank" rel="noopener">PDF oficial</a>
   </div>
 </header>
@@ -67,6 +70,9 @@
   <div class="glossary-panel" id="glossaryList"></div>
 </aside>
 
+<!-- Cajón de revisiones y anotaciones colaborativas (socios fundadores) -->
+<aside class="comments-drawer" id="commentsDrawer" data-open="false" role="dialog" aria-modal="false" aria-labelledby="commentsTitle" hidden></aside>
+
 <footer class="footer">
   <div class="wrap footer__grid">
     <span>Gema Agroecología (Nombre Preliminar) · Rancho Gema, San Pedro Chimay, Yucatán</span>
@@ -76,6 +82,7 @@
 </footer>
 
 <script src="data/document.data.js"></script>
+<script src="data/comments.data.js"></script>
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/router.js"></script>
 <script src="assets/js/render.js"></script>
@@ -90,6 +97,8 @@
 <script src="assets/js/viz/subsidies.js"></script>
 <script src="assets/js/viz/map.js"></script>
 <script src="assets/js/viz/flows.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/comments.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

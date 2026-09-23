@@ -198,8 +198,25 @@
     }
   }
 
-  function blocksToHtml(blocks) {
-    return (blocks || []).map(blockToHtml).join('\n');
+  function wrapBlock(html, blockId) {
+    if (!html) return '';
+    if (!blockId) return html;
+    return '<div class="annotatable-block" data-block-id="' + escapeHtml(blockId) + '">' +
+      html +
+      '<button class="block-comment-btn" type="button" aria-label="Anotar en este bloque" title="Agregar anotación a este bloque" data-comment-target="' + escapeHtml(blockId) + '">' +
+        '💬 <span class="comment-count-badge" data-count-for="' + escapeHtml(blockId) + '" hidden>0</span>' +
+      '</button>' +
+    '</div>';
+  }
+
+  function blocksToHtml(blocks, secNum) {
+    return (blocks || []).map(function (b, idx) {
+      var html = blockToHtml(b);
+      if (!html) return '';
+      if (!secNum) return html;
+      var bId = 'blk-' + secNum + '-' + idx;
+      return wrapBlock(html, bId);
+    }).join('\n');
   }
 
   function sectionId(num) {
@@ -209,12 +226,12 @@
   /** Capítulo completo (texto íntegro) con anclas por sección. */
   function chapterToHtml(chapter) {
     var out = [];
-    if (chapter.intro && chapter.intro.length) out.push(blocksToHtml(chapter.intro));
+    if (chapter.intro && chapter.intro.length) out.push(blocksToHtml(chapter.intro, chapter.slug + '-intro'));
     (chapter.sections || []).forEach(function (s) {
       out.push('<div class="sec-head" id="' + sectionId(s.num) + '">' +
         '<span class="sec-head__num">' + escapeHtml(s.num) + '</span>' +
         '<h2 class="sec-head__title">' + escapeHtml(s.title) + '</h2></div>');
-      out.push(blocksToHtml(s.blocks));
+      out.push(blocksToHtml(s.blocks, 'sec' + s.num));
     });
     return out.join('\n');
   }
@@ -225,6 +242,7 @@
     listToHtml: listToHtml,
     tableToHtml: tableToHtml,
     blockToHtml: blockToHtml,
+    wrapBlock: wrapBlock,
     blocksToHtml: blocksToHtml,
     sectionId: sectionId,
     chapterToHtml: chapterToHtml,

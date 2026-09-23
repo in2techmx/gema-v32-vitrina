@@ -184,13 +184,13 @@
 
   function chapterWithVizHtml(chapter) {
     var out = [];
-    if (chapter.intro && chapter.intro.length) out.push(REN.blocksToHtml(chapter.intro));
+    if (chapter.intro && chapter.intro.length) out.push(REN.blocksToHtml(chapter.intro, chapter.slug + '-intro'));
 
     (chapter.sections || []).forEach(function (s) {
       out.push('<div class="sec-head" id="' + REN.sectionId(s.num) + '">' +
         '<span class="sec-head__num">' + TILES.escapeHtml(s.num) + '</span>' +
         '<h2 class="sec-head__title">' + TILES.escapeHtml(s.title) + '</h2></div>');
-      out.push(REN.blocksToHtml(s.blocks));
+      out.push(REN.blocksToHtml(s.blocks, 'sec' + s.num));
 
       var extras = (VIZ_MAP[chapter.slug] || []).filter(function (v) { return v.section === s.num; });
       extras.forEach(function (v) {
@@ -393,6 +393,10 @@
         refreshViz('seeds');
       });
     });
+
+    if (global.GEMA_COMMENTS && global.GEMA_COMMENTS.bindBlockButtons) {
+      global.GEMA_COMMENTS.bindBlockButtons();
+    }
   }
 
   function markCurrentSection(num) {
