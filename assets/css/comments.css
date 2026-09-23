@@ -61,7 +61,9 @@
   color: var(--brand-2);
 }
 
-/* Auth Widget en la Topbar */
+/* ==========================================================================
+   AUTH WIDGET & GOOGLE IDENTITY MODAL (IDÉNTICO A CHIMAY-OPERACIONES)
+   ========================================================================== */
 .auth-widget {
   display: flex;
   align-items: center;
@@ -69,10 +71,41 @@
   margin-left: 0.25rem;
 }
 
-.auth-user-chip {
+/* Botón Oficial "Acceder con Google" */
+.btn-google-auth {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--surface-1);
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google-auth:hover {
+  background: var(--surface-2);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+.g-logo-svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Pastilla de usuario autenticado en topbar */
+.auth-user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 4px 10px 4px 6px;
   border-radius: 999px;
   background: var(--surface-2);
@@ -84,90 +117,274 @@
   transition: border-color var(--t-fast) var(--ease);
 }
 
-.auth-user-chip:hover {
+.auth-user-pill:hover {
   border-color: var(--brand);
 }
 
-.auth-avatar {
-  width: 22px;
-  height: 22px;
+.topbar-user-avatar {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  object-fit: cover;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
   color: #ffffff;
-  background: #64748b;
-  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.auth-avatar.gema { background: #9333ea; }
-.auth-avatar.arturo-b { background: #059669; }
-.auth-avatar.arturo-a { background: #0284c7; }
+.auth-user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
 
-/* Menú dropdown de autenticación */
-.auth-dropdown {
+.auth-user-name {
+  font-weight: 700;
+  font-size: 11.5px;
+}
+
+.auth-user-google-badge {
+  font-size: 9.5px;
+  color: var(--brand-2);
+  font-weight: 600;
+}
+
+.auth-chevron {
+  font-size: 9px;
+  color: var(--text-3);
+  margin-left: 2px;
+}
+
+/* Dropdown de usuario autenticado */
+.user-auth-dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  right: 16px;
-  width: 290px;
+  right: 0;
+  width: 270px;
   background: var(--surface-1);
   border: 1px solid var(--line-strong);
   border-radius: var(--r-md);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
   padding: var(--sp-3);
   z-index: 1000;
-  display: none;
 }
 
-.auth-dropdown.is-open {
-  display: block;
+.user-auth-dropdown.hidden {
+  display: none !important;
 }
 
-.auth-dropdown__title {
-  font-family: var(--font-display);
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  color: var(--text-2);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--sp-2);
-  padding-bottom: 4px;
+.user-dropdown-header {
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
 
-.auth-dropdown__options {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.auth-role-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--brand-2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-.auth-option-btn {
+.user-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.user-dropdown-item {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   border-radius: var(--r-sm);
   background: var(--surface-2);
   border: 1px solid var(--line);
   color: var(--text);
-  font-size: var(--fs-xs);
+  font-size: 11.5px;
+  font-weight: 600;
   text-align: left;
   cursor: pointer;
   transition: all var(--t-fast) var(--ease);
 }
 
-.auth-option-btn:hover {
+.user-dropdown-item:hover {
   background: rgba(16, 185, 129, 0.12);
   border-color: var(--brand);
 }
 
-.auth-option-btn.is-selected {
-  border-color: var(--brand);
-  background: rgba(16, 185, 129, 0.16);
-  font-weight: 600;
+.user-dropdown-item--danger:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #f87171;
 }
+
+/* ==========================================================================
+   MODAL OFICIAL DE GOOGLE IDENTITY SERVICES (`#googleAuthModal`)
+   ========================================================================== */
+.google-auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.google-auth-overlay.hidden {
+  display: none !important;
+}
+
+.google-auth-dialog {
+  background: var(--surface-1);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  max-width: 480px;
+  width: 100%;
+  padding: var(--sp-4);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.google-auth-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 14px;
+}
+
+.google-auth-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.google-auth-close:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.google-auth-box {
+  padding: 14px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.google-clientid-panel {
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+}
+
+.google-accounts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.g-account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.g-account-card:hover {
+  border-color: var(--brand);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.g-account-card.is-active {
+  border-color: var(--brand);
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.g-account-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  color: #ffffff;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.g-active-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--brand-2);
+  border: 1px solid var(--brand);
+  flex-shrink: 0;
+}
+
+/* Alertas de autenticación */
+.auth-alert {
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  font-size: 11.5px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.auth-alert--danger {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.auth-alert--success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+}
+
+.auth-alert--warn {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fcd34d;
+}
+
+.text-status--ok { color: var(--brand-2); font-weight: 700; }
+.text-status--err { color: #f87171; font-weight: 700; }
+.text-status--info { color: var(--text-3); font-weight: 600; }
 
 /* ==========================================================================
    PANEL LATERAL INDEPENDIENTE SCROLLEABLE DE COMENTARIOS
