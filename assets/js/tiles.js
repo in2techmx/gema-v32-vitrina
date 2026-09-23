@@ -81,6 +81,8 @@
 
   function tileHtml(chapter, activeSlug) {
     var stats = chapter.stats || { sections: 0, tables: 0, figures: 0 };
+    var ped = global.GEMA32_PEDAGOGY;
+    var minutos = ped ? ped.chapterMetrics(chapter).minutes : null;
     return '<button class="tile' + (chapter.slug === activeSlug ? ' is-active' : '') + '" type="button" ' +
       'data-slug="' + escapeHtml(chapter.slug) + '" tabindex="' + (chapter.slug === activeSlug ? '0' : '-1') + '" ' +
       'aria-label="Abrir capítulo ' + chapter.num + ': ' + escapeHtml(chapter.title) + '">' +
@@ -91,6 +93,7 @@
       '<span class="chip">' + stats.sections + ' secciones</span>' +
       (stats.tables ? '<span class="chip">' + stats.tables + ' tablas</span>' : '') +
       (stats.figures ? '<span class="chip">' + stats.figures + ' figuras</span>' : '') +
+      (minutos ? '<span class="read-chip">≈ ' + minutos + ' min</span>' : '') +
       (chapter.page ? '<span class="chip chip--mono">PDF p. ' + chapter.page + '</span>' : '') +
       '</span></button>';
   }

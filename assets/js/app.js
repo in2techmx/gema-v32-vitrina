@@ -25,8 +25,10 @@
   var REN = global.GEMA32_RENDER;
   var TILES = global.GEMA32_TILES;
   var SEARCH = global.GEMA32_SEARCH;
+  var PED = global.GEMA32_PEDAGOGY;
 
   var index = SEARCH.buildIndex(D.chapters);
+  var glosario = PED ? PED.buildGlossary(D) : [];
   var reduced = false;
   try { reduced = !!(global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) { }
 
@@ -45,6 +47,8 @@
       roadmap: 0,
       channels: null,
       seeds: 'all',
+      zone: null,
+      fund: null,
     },
   };
 
@@ -52,7 +56,9 @@
    * Diagramas dinámicos: dónde se montan y con qué datos
    * ------------------------------------------------------------------ */
   var VIZ_MAP = {
-    'cap-04': [{ section: '4.1', kind: 'subsidies' }],
+    'cap-01': [{ section: '1.2', kind: 'map' }],
+    'cap-02': [{ section: '2.2', kind: 'chain' }],
+    'cap-04': [{ section: '4.1', kind: 'funds' }, { section: '4.1', kind: 'subsidies' }],
     'cap-06': [{ section: '6.3', kind: 'channels' }],
     'cap-07': [
       { section: '7.1', kind: 'budget' },
@@ -60,9 +66,14 @@
       { section: '7.11', kind: 'scenarios' },
     ],
     'cap-08': [{ section: '8.1', kind: 'roadmap' }],
+    'cap-09': [{ section: '9.2', kind: 'treasury' }],
   };
 
   var VIZ_META = {
+    map: { title: 'Mapa del polígono y su contexto', hint: '4 zonas a área proporcional · toca una zona para ver su ficha' },
+    chain: { title: 'Cadena de valor, del campo al cliente', hint: 'Etapas productivas y sus destinos comerciales' },
+    funds: { title: 'Flujo de financiamiento por nivel de gobierno', hint: 'Tres órdenes de gobierno alimentan la fase piloto' },
+    treasury: { title: 'Escalera de autorización del gasto', hint: 'Quién firma qué, según el monto' },
     subsidies: { title: 'Apoyos por nivel de gobierno', hint: 'Tres órdenes de gobierno y su matriz de gestión' },
     channels: { title: 'Los 7 canales comerciales', hint: 'Toca un canal para ver su dinámica y su margen' },
     budget: { title: 'Presupuesto maestro en una mirada', hint: 'Rubros A–F, corte CAPEX / OPEX y participación' },
@@ -82,6 +93,10 @@
       seeds: global.GEMA32_VIZ_SEEDS,
       scenarios: global.GEMA32_VIZ_SCENARIOS,
       roadmap: global.GEMA32_VIZ_ROADMAP,
+      map: global.GEMA32_VIZ_MAP,
+      chain: global.GEMA32_VIZ_FLOWS,
+      funds: global.GEMA32_VIZ_FLOWS,
+      treasury: global.GEMA32_VIZ_FLOWS,
     };
     var builders = {
       subsidies: function (m) { return m.buildSubsidies(D); },
@@ -90,6 +105,10 @@
       seeds: function (m) { return m.buildSeeds(D); },
       scenarios: function (m) { return m.buildScenarios(D); },
       roadmap: function (m) { return m.buildRoadmap(D); },
+      map: function (m) { return m.buildZones(D); },
+      chain: function (m) { return m.buildValueChain(D); },
+      funds: function (m) { return m.buildFundsFlow(D); },
+      treasury: function (m) { return m.buildTreasuryFlow(D); },
     };
     var m = mods[kind];
     if (!m) return null;
@@ -120,6 +139,10 @@
       case 'seeds': return global.GEMA32_VIZ_SEEDS.bodyHtml(data, state.viz.seeds);
       case 'scenarios': return global.GEMA32_VIZ_SCENARIOS.bodyHtml(data, state.viz.scenarios);
       case 'roadmap': return global.GEMA32_VIZ_ROADMAP.bodyHtml(data, state.viz.roadmap);
+      case 'map': return global.GEMA32_VIZ_MAP.bodyHtml(data, state.viz.zone);
+      case 'chain': return global.GEMA32_VIZ_FLOWS.chainHtml(data);
+      case 'funds': return global.GEMA32_VIZ_FLOWS.fundsHtml(data, state.viz.fund);
+      case 'treasury': return global.GEMA32_VIZ_FLOWS.treasuryHtml(data);
       default: return '';
     }
   }
@@ -202,6 +225,8 @@
             '<span class="chip">' + chapter.sections.length + ' secciones</span>' +
             '<span class="chip">' + chapter.stats.tables + ' tablas</span>' +
             (chapter.stats.figures ? '<span class="chip">' + chapter.stats.figures + ' figuras</span>' : '') +
+            '<span class="read-chip" title="Calculado a ' + PED.PALABRAS_POR_MINUTO + ' palabras por minuto">' +
+              '≈ ' + PED.chapterMetrics(chapter).minutes + ' min de lectura</span>' +
             '<span class="chip chip--mono">' + chapter.stats.words.toLocaleString('es-MX') + ' palabras</span>' +
           '</div>' +
         '</header>' +
@@ -311,6 +336,39 @@
       });
     });
 
+    // Mapa: selección de zona
+    Array.prototype.forEach.call(app.querySelectorAll('.zone'), function (g) {
+      var elegir = function () {
+        state.viz.zone = g.getAttribute('data-zone');
+        Array.prototype.forEach.call(app.querySelectorAll('.zone'), function (x) {
+          x.setAttribute('aria-pressed', x === g ? 'true' : 'false');
+        });
+        var data = buildVizData('map');
+        var host = app.querySelector('[data-map-panel]');
+        var z = data.zones.filter(function (x) { return x.key === state.viz.zone; })[0];
+        if (host) host.innerHTML = global.GEMA32_VIZ_MAP.zonePanel(z);
+      };
+      g.addEventListener('click', elegir);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); elegir(); }
+      });
+    });
+
+    // Flujo de fondos: selección de nivel de gobierno
+    Array.prototype.forEach.call(app.querySelectorAll('.flow-node[data-level]'), function (g) {
+      var elegir = function () {
+        state.viz.fund = g.getAttribute('data-level');
+        refreshViz('funds');
+      };
+      g.addEventListener('click', elegir);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); elegir(); }
+      });
+    });
+
+    // Temas con definición en el documento (glosario emergente)
+    if (PED && glosario.length) PED.annotate(document.getElementById('doc'), glosario);
+
     // Canales: selección
     Array.prototype.forEach.call(app.querySelectorAll('.chan'), function (b) {
       b.addEventListener('click', function () {
@@ -406,6 +464,84 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * Cajones: atajos y glosario
+   * ------------------------------------------------------------------ */
+  var drawers = {};
+
+  function abrirDrawer(id, abrir) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var boton = document.getElementById(id === 'helpDrawer' ? 'helpToggle' : 'glossaryToggle');
+    if (abrir) {
+      el.hidden = false;
+      // forzar un frame para que la transición se vea
+      requestAnimationFrame(function () { el.setAttribute('data-open', 'true'); });
+      if (boton) boton.setAttribute('aria-expanded', 'true');
+    } else {
+      el.setAttribute('data-open', 'false');
+      if (boton) boton.setAttribute('aria-expanded', 'false');
+      setTimeout(function () { el.hidden = true; }, reduced ? 0 : 320);
+    }
+    drawers[id] = !!abrir;
+  }
+
+  function alternarDrawer(id) {
+    abrirDrawer(id, !drawers[id]);
+  }
+
+  function cerrarDrawers() {
+    if (drawers.helpDrawer) abrirDrawer('helpDrawer', false);
+    if (drawers.glossaryDrawer) abrirDrawer('glossaryDrawer', false);
+  }
+
+  function initDrawers() {
+    var lista = document.getElementById('shortcutsList');
+    if (lista && PED) lista.innerHTML = PED.shortcutsHtml();
+    var gl = document.getElementById('glossaryList');
+    if (gl && PED) {
+      gl.innerHTML = PED.glossaryHtml(glosario);
+      if (!glosario.length) gl.innerHTML = '<p class="viz__hint">El documento no contiene definiciones en el formato «Término: descripción».</p>';
+    }
+    var ayuda = document.getElementById('helpToggle');
+    if (ayuda) ayuda.addEventListener('click', function () { alternarDrawer('helpDrawer'); });
+    var glos = document.getElementById('glossaryToggle');
+    if (glos) glos.addEventListener('click', function () { alternarDrawer('glossaryDrawer'); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-close-drawer]'), function (b) {
+      b.addEventListener('click', cerrarDrawers);
+    });
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Atajos de teclado (declarados en pedagogy.js: una sola fuente de verdad)
+   * ------------------------------------------------------------------ */
+  function esCampoDeTexto(el) {
+    if (!el) return false;
+    var tag = (el.tagName || '').toLowerCase();
+    return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;
+  }
+
+  function atajos(ev) {
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    var k = ev.key;
+    if (k === 'Escape') {
+      cerrarDrawers();
+      if (searchBox) { searchBox.hidden = true; searchBox.innerHTML = ''; }
+      if (state.view === 'chapter') location.hash = R.toHubHash();
+      return;
+    }
+    if (esCampoDeTexto(ev.target)) return;
+    if (k === '/') { ev.preventDefault(); if (searchInput) searchInput.focus(); return; }
+    if (k === '?') { ev.preventDefault(); alternarDrawer('helpDrawer'); return; }
+    if (k === 't' || k === 'T') { T.toggle(); updateThemeBtn(); return; }
+    if (k === 'g' || k === 'G') { location.hash = R.toHubHash(); return; }
+    if (k === 'n' || k === 'N' || k === 'p' || k === 'P') {
+      var actual = R.chapterNumber(state.slug) || 1;
+      var destino = R.neighbor(actual, (k === 'n' || k === 'N') ? 1 : -1, D.chapters.length);
+      if (destino) location.hash = R.toChapterHash(destino);
+    }
+  }
+
+  /* ------------------------------------------------------------------ *
    * Arranque
    * ------------------------------------------------------------------ */
   function onRoute() {
@@ -438,6 +574,8 @@
     }
 
     window.addEventListener('hashchange', onRoute);
+    document.addEventListener('keydown', atajos);
+    initDrawers();
     window.addEventListener('scroll', function () {
       if (!readbar) return;
       var h = document.documentElement.scrollHeight - window.innerHeight;
@@ -445,14 +583,20 @@
     }, { passive: true });
 
     document.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Escape' && state.view === 'chapter' && !ev.target.closest('input')) location.hash = R.toHubHash();
+      // Escape también cierra la búsqueda abierta (los cajones los cierra `atajos`)
+      if (ev.key === 'Escape' && searchBox && !searchBox.hidden) {
+        searchBox.hidden = true;
+        searchBox.innerHTML = '';
+      }
     });
-
     onRoute();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 
-  global.GEMA32_APP = { state: state, onRoute: onRoute, renderVizBody: renderVizBody, buildVizData: buildVizData };
+  global.GEMA32_APP = {
+    state: state, onRoute: onRoute, renderVizBody: renderVizBody,
+    buildVizData: buildVizData, glossary: glosario,
+  };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,109 @@
+/* ==========================================================================
+   GEMA V3.2 — map.css
+   MOD-GEMA32-MAPS · Mapas SVG interactivos (polígono y contexto regional).
+   ========================================================================== */
+
+.map-stack { display: grid; gap: var(--sp-4); }
+
+.map {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--text-2);
+  background: linear-gradient(180deg, var(--surface-2), transparent);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.map--context { margin-top: var(--sp-2); }
+
+.viz__sub {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-3);
+  margin: var(--sp-5) 0 var(--sp-2);
+}
+
+/* --------------------------- Zonas del polígono ------------------------- */
+.zone { cursor: pointer; transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
+.zone:hover { transform: translateY(-3px); }
+.zone:focus-visible { outline: none; }
+.zone:focus-visible .zone__box { stroke-width: 3.5; }
+.zone__box { transition: fill-opacity var(--t-base) var(--ease), stroke-width var(--t-fast) var(--ease); }
+.zone:hover .zone__box { fill-opacity: 0.3; }
+.zone[aria-pressed="true"] .zone__box { fill-opacity: 0.34; stroke-width: 3; }
+
+.zone__ha {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 800;
+  fill: var(--text);
+}
+.zone__label { font-size: 11px; fill: var(--text-2); font-weight: 600; }
+.zone__num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  fill: var(--text-3);
+}
+
+/* Pines de infraestructura */
+.map-pin circle { animation: pin-in 420ms var(--ease-out) both; }
+.map-pin__t { font-size: 10.5px; fill: var(--text-2); font-weight: 600; }
+.map-pin:nth-of-type(2) circle { animation-delay: 90ms; }
+.map-pin:nth-of-type(3) circle { animation-delay: 180ms; }
+.map-pin:nth-of-type(4) circle { animation-delay: 270ms; }
+
+@keyframes pin-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.map__scale { font-size: 9.5px; fill: var(--text-3); font-family: var(--font-mono); }
+
+/* --------------------------- Contexto regional -------------------------- */
+.ctx-link line {
+  stroke: var(--line-strong);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 6;
+  animation: dash 18s linear infinite;
+}
+.ctx-link__t {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--brand-2);
+}
+.ctx-node circle { transition: transform var(--t-base) var(--ease); transform-origin: center; }
+.ctx-node:hover circle { transform: scale(1.08); }
+.ctx-node__t { font-family: var(--font-display); font-size: 12px; font-weight: 700; fill: var(--text); }
+.ctx-node__s { font-size: 9.5px; fill: var(--text-3); }
+
+@keyframes dash {
+  to { stroke-dashoffset: -240; }
+}
+
+/* --------------------------- Panel de zona ----------------------------- */
+.map-panel {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  padding: var(--sp-4) var(--sp-5);
+}
+.map-panel__head { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-2); flex-wrap: wrap; }
+.map-panel__t { font-family: var(--font-display); font-size: var(--fs-h3); margin: 0 0 0.35rem; }
+.map-panel__ha { color: var(--text-2); margin: 0 0 0.5rem; font-size: var(--fs-sm); }
+.map-panel__ha strong { color: var(--brand-2); font-family: var(--font-mono); }
+.map-panel__d { font-size: var(--fs-sm); color: var(--text-2); margin: 0 0 0.5rem; }
+.map-panel__list { margin: 0; padding-left: 1.15rem; font-size: var(--fs-xs); color: var(--text-2); }
+.map-panel__list li { margin-bottom: 0.3rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .map-pin circle,
+  .ctx-link line,
+  .zone,
+  .ctx-node circle { animation: none !important; transition: none !important; }
+}

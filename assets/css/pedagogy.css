@@ -1,0 +1,120 @@
+/* ==========================================================================
+   GEMA V3.2 — pedagogy.css
+   MOD-GEMA32-PEDAGOGY · Glosario emergente, tiempo de lectura y ayuda.
+   ========================================================================== */
+
+/* --------------------------- Glosario en el texto ----------------------- */
+.gloss {
+  border-bottom: 1px dotted var(--brand-2);
+  cursor: help;
+  position: relative;
+  color: inherit;
+}
+.gloss:focus-visible { outline: 2px solid var(--brand-3); outline-offset: 2px; }
+
+.gloss__tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  z-index: 30;
+  width: max(240px, min(360px, 74vw));
+  background: var(--surface-solid);
+  color: var(--text-2);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--brand);
+  border-radius: var(--r-sm);
+  padding: 0.6rem 0.75rem;
+  font-size: var(--fs-xxs);
+  line-height: 1.5;
+  box-shadow: var(--glow);
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.gloss:hover .gloss__tip,
+.gloss:focus .gloss__tip { opacity: 1; transform: none; }
+
+/* --------------------------- Panel de glosario -------------------------- */
+.glossary-panel { max-height: 62vh; overflow: auto; }
+.gl-chapter { margin-bottom: var(--sp-4); }
+.gl-chapter__t {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-3);
+  margin: 0 0 var(--sp-2);
+}
+.gl-list { margin: 0; display: grid; gap: 0.55rem; }
+.gl-list dt { font-weight: 700; color: var(--text); font-size: var(--fs-xs); display: flex; gap: 0.45rem; align-items: baseline; flex-wrap: wrap; }
+.gl-list dd { margin: 0.1rem 0 0; font-size: var(--fs-xxs); color: var(--text-2); }
+.gl-src {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--brand-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 0 0.35rem;
+}
+
+/* --------------------------- Ayuda de atajos ---------------------------- */
+.sc-grid { display: grid; gap: 0.4rem; }
+.sc-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: var(--sp-3); align-items: center; }
+.sc-key {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xxs);
+  font-weight: 700;
+  text-align: center;
+  color: var(--brand-2);
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 0.25rem 0.4rem;
+}
+.sc-desc { font-size: var(--fs-xs); color: var(--text-2); }
+
+/* --------------------------- Cajón lateral ------------------------------ */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(520px, 92vw);
+  background: var(--surface-solid);
+  border-left: 1px solid var(--line-strong);
+  box-shadow: var(--glow);
+  padding: var(--sp-5);
+  overflow: auto;
+  z-index: 70;
+  transform: translateX(102%);
+  transition: transform var(--t-base) var(--ease-out);
+}
+.drawer[data-open="true"] { transform: none; }
+.drawer__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.drawer__t { font-family: var(--font-display); font-size: var(--fs-h3); margin: 0; }
+.drawer__close {
+  appearance: none; border: 1px solid var(--line-strong); background: var(--surface-2); color: var(--text);
+  font: inherit; font-size: var(--fs-xs); border-radius: var(--r-pill); padding: 0.35rem 0.7rem; cursor: pointer;
+}
+.drawer__close:hover { border-color: var(--brand); }
+.drawer__hint { font-size: var(--fs-xxs); color: var(--text-3); margin: 0 0 var(--sp-3); }
+
+/* --------------------------- Tiempo de lectura -------------------------- */
+.read-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: var(--fs-xxs);
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--chip-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 0.2rem 0.55rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer { transition: none; }
+}

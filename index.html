@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="Vitrina web interactiva del Documento Ejecutivo Maestro V3.2 de Gema Agroecología (Rancho Gema, San Pedro Chimay, Yucatán): 9 capítulos en tiles, texto íntegro y diagramas dinámicos.">
+<meta name="description" content="Vitrina web interactiva del Documento Ejecutivo Maestro V3.2 de Gema Agroecología (Rancho Gema, San Pedro Chimay, Yucatán): 9 capítulos en tiles, texto íntegro, mapas interactivos, flujos animados y diagramas dinámicos.">
 <meta name="author" content="in2techmx">
 <meta name="generator" content="in2techmx Development Framework — PROJ-GEMA32-WEB-V1">
 <title>Gema Agroecología · Documento Ejecutivo V3.2 — Vitrina interactiva</title>
@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="assets/css/content.css">
 <link rel="stylesheet" href="assets/css/viz.css">
+<link rel="stylesheet" href="assets/css/map.css">
+<link rel="stylesheet" href="assets/css/flows.css">
+<link rel="stylesheet" href="assets/css/pedagogy.css">
 </head>
 <body>
 <a class="skip-link" href="#app">Saltar al contenido</a>
@@ -30,17 +33,39 @@
     </div>
     <div class="topbar__spacer"></div>
     <div class="searchbox">
-      <label for="search" class="sr-only" style="position:absolute;left:-9999px">Buscar en el documento</label>
+      <label for="search" style="position:absolute;left:-9999px">Buscar en el documento</label>
       <input id="search" type="search" placeholder="Buscar en los 9 capítulos…" autocomplete="off"
              aria-label="Buscar en el documento" aria-controls="searchresults">
       <div class="searchresults" id="searchresults" role="listbox" hidden></div>
     </div>
+    <button class="btn btn--ghost" id="glossaryToggle" type="button" aria-controls="glossaryDrawer" aria-expanded="false">Glosario</button>
+    <button class="btn btn--ghost" id="helpToggle" type="button" aria-controls="helpDrawer" aria-expanded="false">Atajos <kbd class="sc-key" style="padding:0 .3rem">?</kbd></button>
     <button class="btn btn--ghost" id="themeToggle" type="button">Tema claro</button>
     <a class="btn" href="source/DOCUMENTO_EJECUTIVO_PROYECTO_CHIMAY_V3.2.pdf" target="_blank" rel="noopener">PDF oficial</a>
   </div>
 </header>
 
 <main id="app" role="main"></main>
+
+<!-- Cajón de atajos de teclado -->
+<aside class="drawer" id="helpDrawer" data-open="false" role="dialog" aria-modal="false" aria-labelledby="helpTitle" hidden>
+  <div class="drawer__head">
+    <h2 class="drawer__t" id="helpTitle">Atajos de teclado</h2>
+    <button class="drawer__close" type="button" data-close-drawer>Esc</button>
+  </div>
+  <p class="drawer__hint">Toda la vitrina se puede recorrer sin ratón: los tiles, el índice lateral y los diagramas son enfocables.</p>
+  <div class="sc-grid" id="shortcutsList"></div>
+</aside>
+
+<!-- Cajón de glosario (definiciones tomadas del documento) -->
+<aside class="drawer" id="glossaryDrawer" data-open="false" role="dialog" aria-modal="false" aria-labelledby="glossaryTitle" hidden>
+  <div class="drawer__head">
+    <h2 class="drawer__t" id="glossaryTitle">Glosario del documento</h2>
+    <button class="drawer__close" type="button" data-close-drawer>Esc</button>
+  </div>
+  <p class="drawer__hint">Cada definición es literal del Documento Ejecutivo; se indica la sección de origen. En el texto, los términos subrayados muestran su definición al pasar el cursor o al enfocarlos.</p>
+  <div class="glossary-panel" id="glossaryList"></div>
+</aside>
 
 <footer class="footer">
   <div class="wrap footer__grid">
@@ -55,6 +80,7 @@
 <script src="assets/js/router.js"></script>
 <script src="assets/js/render.js"></script>
 <script src="assets/js/search.js"></script>
+<script src="assets/js/pedagogy.js"></script>
 <script src="assets/js/tiles.js"></script>
 <script src="assets/js/viz/scenarios.js"></script>
 <script src="assets/js/viz/budget.js"></script>
@@ -62,6 +88,8 @@
 <script src="assets/js/viz/channels.js"></script>
 <script src="assets/js/viz/seeds.js"></script>
 <script src="assets/js/viz/subsidies.js"></script>
+<script src="assets/js/viz/map.js"></script>
+<script src="assets/js/viz/flows.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

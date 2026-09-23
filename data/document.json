@@ -19,7 +19,7 @@
         },
         {
           "label": "Nombre del Proyecto (Preliminar)",
-          "value": "Gema Agroecología — *Denominación preliminar de trabajo; el nombre definitivo se definirá más adelante*"
+          "value": "Gema Agroecología — Denominación preliminar de trabajo; el nombre definitivo se definirá más adelante"
         },
         {
           "label": "Sede Operativa / Predio Anfitrión",
@@ -47,11 +47,11 @@
         },
         {
           "label": "Presupuesto Total de Arranque",
-          "value": "**$169,273.00 MXN** · CAPEX: $49,273.00 | OPEX 6 Meses: $120,000.00"
+          "value": "$169,273.00 MXN · CAPEX: $49,273.00 | OPEX 6 Meses: $120,000.00"
         },
         {
           "label": "Fecha de Publicación · Versión",
-          "value": "**Septiembre 2026 | Versión V3.2**"
+          "value": "Septiembre 2026 | Versión V3.2"
         }
       ],
       "footer": [
@@ -125,7 +125,7 @@
     },
     "closing": "Fin del Documento Ejecutivo — Plan de Negocios, Modelo Agroecológico y Presupuesto Detallado: Gema Agroecología (Nombre Preliminar) (Versión V3.2)",
     "sourceSha256": "8ee03edaa04e611438363bb0a0ea43a2cab63aa6e7f35a92ba8c1dfa7ba0d1b9",
-    "dataSha256": "a9af226c3f514d9d5b6a2e442368c0d918d8fd130424171a3cd02f690a5d51c1"
+    "dataSha256": "15a405077e461714f78a342913abccede30e7d04a7ba878eadeb3cd1917fffe3"
   },
   "chapters": [
     {
@@ -386,7 +386,11 @@
                   [
                     {
                       "t": "text",
-                      "v": "Planicie con ondulaciones kársticas leves (pendiente media < 1.5%)"
+                      "v": "Planicie con ondulaciones kársticas leves (pendiente media "
+                    },
+                    {
+                      "t": "text",
+                      "v": "< 1.5%)"
                     }
                   ]
                 ],
@@ -1158,7 +1162,11 @@
                     },
                     {
                       "t": "text",
-                      "v": " Validar tracción comercial en 7 canales complementarios (HORECA, mercados regionales especializados, venta por internet [web y redes sociales], venta de boca en boca/comunitaria, experiencias turísticas, banquetes y eventos sociales con Wedding Planners, y eventos gastronómicos pop-up en finca)."
+                      "v": " Validar tracción comercial en 7 canales complementarios (HORECA, mercados regionales especializados, venta por internet "
+                    },
+                    {
+                      "t": "text",
+                      "v": "[web y redes sociales], venta de boca en boca/comunitaria, experiencias turísticas, banquetes y eventos sociales con Wedding Planners, y eventos gastronómicos pop-up en finca)."
                     }
                   ]
                 }
@@ -1203,7 +1211,7 @@
             {
               "type": "callout",
               "title": "Pilar 4: Absorción Comercial Omnicanal de Alta Gama (7 Canales Sinérgicos) Flujo Semanal Continuo",
-              "body": "**1. HORECA Alta Gama:** Restaurantes de autor y hoteles boutique en Mérida y Riviera Maya. **2. Mercados Regionales:** Slow Food Mérida, Tianguis Agroecológico y ferias gourmet de fin de semana. **3. Venta por Internet:** Tienda en línea oficial integrada al SaaS IN2TECHMX con pasarela SPEI/tarjetas y redes sociales. **4. Redes Comunitarias:** Suscripciones directas de boca en boca para canastas familiares vía WhatsApp y Telegram. **5. Experiencias Turísticas:** Boletos de agroturismo vivencial y reservas directas en finca. **6. Banquetes & Wedding Planners:** Flores comestibles, brotes vivos y mixología botánica para bodas en haciendas henequeneras. **7. Eventos Propios Pop-Up:** Cenas maridaje campestres con chefs invitados y dinámicas culinarias exclusivas."
+              "body": "1. HORECA Alta Gama: Restaurantes de autor y hoteles boutique en Mérida y Riviera Maya. 2. Mercados Regionales: Slow Food Mérida, Tianguis Agroecológico y ferias gourmet de fin de semana. 3. Venta por Internet: Tienda en línea oficial integrada al SaaS IN2TECHMX con pasarela SPEI/tarjetas y redes sociales. 4. Redes Comunitarias: Suscripciones directas de boca en boca para canastas familiares vía WhatsApp y Telegram. 5. Experiencias Turísticas: Boletos de agroturismo vivencial y reservas directas en finca. 6. Banquetes & Wedding Planners: Flores comestibles, brotes vivos y mixología botánica para bodas en haciendas henequeneras. 7. Eventos Propios Pop-Up: Cenas maridaje campestres con chefs invitados y dinámicas culinarias exclusivas."
             }
           ]
         },
@@ -2039,7 +2047,7 @@
                   "title": "Fase Piloto — Laboratorio Agronómico y Comercial (1.00 HA + 200 m² Invernadero)",
                   "tag": "6 Meses",
                   "isGate": false,
-                  "desc": "Descubrir cultivos y variedades óptimas para suelo Luvisol crómico (*Kankab*) y microclima de Chimay; validar rotación biointensiva, costos reales y tracción en los 7 canales comerciales. **Meses 4 a 6:** Charlas, mesas de trabajo y acuerdos societarios del Comité para estructurar técnica y presupuestalmente la Etapa 1.",
+                  "desc": "Descubrir cultivos y variedades óptimas para suelo Luvisol crómico (Kankab) y microclima de Chimay; validar rotación biointensiva, costos reales y tracción en los 7 canales comerciales. Meses 4 a 6: Charlas, mesas de trabajo y acuerdos societarios del Comité para estructurar técnica y presupuestalmente la Etapa 1.",
                   "bullets": []
                 },
                 {
@@ -2047,7 +2055,7 @@
                   "title": "Decision Gate 1 — Evaluación Colegiada del Piloto & Autorización de Etapa 1",
                   "tag": "Hito Mes 6",
                   "isGate": true,
-                  "desc": "Sesión plenaria del Comité de Dirección General a discusión y consenso. Auditoría de rendimientos reales en campo, márgenes comerciales por canal y conciliación de caja. Aprobación oficial del plan de expansión, mezcla definitiva de cultivos (*crop mix*) y presupuesto de Etapa 1.",
+                  "desc": "Sesión plenaria del Comité de Dirección General a discusión y consenso. Auditoría de rendimientos reales en campo, márgenes comerciales por canal y conciliación de caja. Aprobación oficial del plan de expansión, mezcla definitiva de cultivos (crop mix) y presupuesto de Etapa 1.",
                   "bullets": []
                 },
                 {
@@ -2055,7 +2063,7 @@
                   "title": "Etapa 1 — Escalamiento Técnico, Flores, Meliponario y Consolidación",
                   "tag": "Meses 7 a 24",
                   "isGate": false,
-                  "desc": "Superficie calibrada en campo (hasta 3.00 HA); bancales de flores de especialidad (corte y comestibles para bodas en haciendas); instalación del Apiario/Meliponario tradicional y tecnificado (*Melipona beecheii* / Xunan Kab); formalidad legal plena (S.P.R. de R.L.) y absorción de apoyos gubernamentales (SEDER/IYEM/STPS); despliegue de paquetes turísticos y academia campesina.",
+                  "desc": "Superficie calibrada en campo (hasta 3.00 HA); bancales de flores de especialidad (corte y comestibles para bodas en haciendas); instalación del Apiario/Meliponario tradicional y tecnificado (Melipona beecheii / Xunan Kab); formalidad legal plena (S.P.R. de R.L.) y absorción de apoyos gubernamentales (SEDER/IYEM/STPS); despliegue de paquetes turísticos y academia campesina.",
                   "bullets": []
                 },
                 {
@@ -2333,24 +2341,8 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Establecimiento del Apiario / Meliponario de Abeja Melipona ("
-                    },
-                    {
-                      "t": "text",
-                      "v": "Melipona beecheii"
-                    },
-                    {
-                      "t": "em",
-                      "v": " / Xunan Kab):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "*"
+                      "t": "strong",
+                      "v": "Establecimiento del Apiario / Meliponario de Abeja Melipona (Melipona beecheii / Xunan Kab):"
                     },
                     {
                       "t": "text",
@@ -3088,7 +3080,7 @@
             {
               "type": "callout",
               "title": "Síntesis Edafológica e Hidroagrícola (Rancho Gema, Chimay)",
-              "body": "Suelo **Luvisol Crómico (Kankab)** con 30-60 cm de profundidad efectiva enriquecido con compost Bocashi; **Pozo N° 1 a 18 metros** (espejo a 7.2 m) con bomba sumergible de 7.5 HP (6.5 L/s) que abastece el riego biointensivo en solo 45 minutos diarios; insolación de 5.8 kWh/m²/día óptima para fotosíntesis y deshidratado solar grado alimenticio."
+              "body": "Suelo Luvisol Crómico (Kankab) con 30-60 cm de profundidad efectiva enriquecido con compost Bocashi; Pozo N° 1 a 18 metros (espejo a 7.2 m) con bomba sumergible de 7.5 HP (6.5 L/s) que abastece el riego biointensivo en solo 45 minutos diarios; insolación de 5.8 kWh/m²/día óptima para fotosíntesis y deshidratado solar grado alimenticio."
             }
           ]
         },
@@ -3148,24 +3140,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Chaya Mansa ("
+                      "t": "strong",
+                      "v": "Chaya Mansa (Cnidoscolus aconitifolius):"
                     },
                     {
                       "t": "text",
-                      "v": "Cnidoscolus aconitifolius"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* El superalimento peninsular por excelencia. Arbusto perenne de enraizamiento profundo en sustrato rocoso, inmune a plagas locales, sin requerimiento de fertilizantes sintéticos y con producción continua de biomasa foliar de altísimo valor nutricional (hierro, calcio y proteína vegetal). Demanda sostenida en el circuito HORECA yucateco."
+                      "v": " El superalimento peninsular por excelencia. Arbusto perenne de enraizamiento profundo en sustrato rocoso, inmune a plagas locales, sin requerimiento de fertilizantes sintéticos y con producción continua de biomasa foliar de altísimo valor nutricional (hierro, calcio y proteína vegetal). Demanda sostenida en el circuito HORECA yucateco."
                     }
                   ]
                 },
@@ -3175,24 +3155,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Verdolaga Criolla ("
+                      "t": "strong",
+                      "v": "Verdolaga Criolla (Portulaca oleracea):"
                     },
                     {
                       "t": "text",
-                      "v": "Portulaca oleracea"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Cobertura rastrera espontánea que prospera en los bordes de camas y áreas soleadas. Protege el suelo contra la evaporación, retiene humedad y aporta hojas y tallos carnosos ricos en Omega-3 para ensaladas gourmet de alta cocina."
+                      "v": " Cobertura rastrera espontánea que prospera en los bordes de camas y áreas soleadas. Protege el suelo contra la evaporación, retiene humedad y aporta hojas y tallos carnosos ricos en Omega-3 para ensaladas gourmet de alta cocina."
                     }
                   ]
                 },
@@ -3202,28 +3170,20 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Quintoniles y Amaranto Nativo ("
+                      "t": "strong",
+                      "v": "Quintoniles y Amaranto Nativo (Amaranthus hybridus / cruentus):"
                     },
                     {
                       "t": "text",
-                      "v": "Amaranthus hybridus / cruentus"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "em",
                       "v": " Crecimiento explosivo en temporadas de calor y lluvias sobre suelo Kankab. Brinda hojas tiernas de corte continuo para mezclas de hojas verdes finas ("
                     },
                     {
+                      "t": "em",
+                      "v": "mesclun"
+                    },
+                    {
                       "t": "text",
-                      "v": "mesclun*) y grano para confitería o harina agroecológica."
+                      "v": ") y grano para confitería o harina agroecológica."
                     }
                   ]
                 },
@@ -3233,24 +3193,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Macal Peninsular ("
+                      "t": "strong",
+                      "v": "Macal Peninsular (Xanthosoma sagittifolium):"
                     },
                     {
                       "t": "text",
-                      "v": "Xanthosoma sagittifolium"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Arácea comestible tradicional de la milpa maya; produce cormos y tubérculos de alta digestibilidad con nula incidencia de enfermedades en suelos pedregosos con buen drenaje."
+                      "v": " Arácea comestible tradicional de la milpa maya; produce cormos y tubérculos de alta digestibilidad con nula incidencia de enfermedades en suelos pedregosos con buen drenaje."
                     }
                   ]
                 }
@@ -3275,28 +3223,20 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Frijol Xpelón ("
+                      "t": "strong",
+                      "v": "Frijol Xpelón (Vigna unguiculata):"
                     },
                     {
                       "t": "text",
-                      "v": "Vigna unguiculata"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "em",
                       "v": " Leguminosa rústica de verano que tolera temperaturas superiores a 38°C y sequías intermitentes. Además de su alta cotización culinaria en la temporada de "
                     },
                     {
+                      "t": "em",
+                      "v": "Hanal Pixán"
+                    },
+                    {
                       "t": "text",
-                      "v": "Hanal Pixán* y gastronomía peninsular, aporta fijación biológica de nitrógeno atmosférico mediante nódulos radiculares simbióticos."
+                      "v": " y gastronomía peninsular, aporta fijación biológica de nitrógeno atmosférico mediante nódulos radiculares simbióticos."
                     }
                   ]
                 },
@@ -3306,24 +3246,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Frijol Ib / Ibes Criollos ("
+                      "t": "strong",
+                      "v": "Frijol Ib / Ibes Criollos (Phaseolus lunatus):"
                     },
                     {
                       "t": "text",
-                      "v": "Phaseolus lunatus"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Variedad endémica ancestral de haba tierna adaptada a los suelos calcáreos del Mayab. Excelente cobertura vegetal que suprime arvenses invasoras."
+                      "v": " Variedad endémica ancestral de haba tierna adaptada a los suelos calcáreos del Mayab. Excelente cobertura vegetal que suprime arvenses invasoras."
                     }
                   ]
                 },
@@ -3333,24 +3261,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Canavalia ("
+                      "t": "strong",
+                      "v": "Canavalia (Canavalia ensiformis):"
                     },
                     {
                       "t": "text",
-                      "v": "Canavalia ensiformis"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Fabácea de enraizamiento pivotante agresivo capaz de fracturar capas compactadas de suelo Kankab, acumulando hasta 30 toneladas de materia orgánica verde por hectárea para incorporación directa como abono verde."
+                      "v": " Fabácea de enraizamiento pivotante agresivo capaz de fracturar capas compactadas de suelo Kankab, acumulando hasta 30 toneladas de materia orgánica verde por hectárea para incorporación directa como abono verde."
                     }
                   ]
                 },
@@ -3360,24 +3276,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Huaxín / Guaje ("
+                      "t": "strong",
+                      "v": "Huaxín / Guaje (Leucaena leucocephala):"
                     },
                     {
                       "t": "text",
-                      "v": "Leucaena leucocephala"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Árbol fijador de nitrógeno que tolera el pH alcalino (7.5 - 7.8); sus podas periódicas alimentan las pilas de compostaje biointensivo y proveen acolchado rico en nitrógeno soluble."
+                      "v": " Árbol fijador de nitrógeno que tolera el pH alcalino (7.5 - 7.8); sus podas periódicas alimentan las pilas de compostaje biointensivo y proveen acolchado rico en nitrógeno soluble."
                     }
                   ]
                 }
@@ -3402,24 +3306,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Orégano de Monte / Yucateco ("
+                      "t": "strong",
+                      "v": "Orégano de Monte / Yucateco (Lippia graveolens):"
                     },
                     {
                       "t": "text",
-                      "v": "Lippia graveolens"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Especie xerófita perfectamente adaptada a suelos esqueléticos y laja calcárea. Presenta concentraciones de aceites esenciales (timol y carvacrol) muy superiores al orégano europeo, con nulo consumo de agua y alta demanda en la línea de deshidratados solares y sazonadores botánicos."
+                      "v": " Especie xerófita perfectamente adaptada a suelos esqueléticos y laja calcárea. Presenta concentraciones de aceites esenciales (timol y carvacrol) muy superiores al orégano europeo, con nulo consumo de agua y alta demanda en la línea de deshidratados solares y sazonadores botánicos."
                     }
                   ]
                 },
@@ -3429,24 +3321,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Epazote Morado Criollo ("
+                      "t": "strong",
+                      "v": "Epazote Morado Criollo (Dysphania ambrosioides):"
                     },
                     {
                       "t": "text",
-                      "v": "Dysphania ambrosioides"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Especie espontánea de fácil resiembra natural; actúa como barrera aromática repelente contra nemátodos, pulgones y gusanos trozadores en las camas biointensivas."
+                      "v": " Especie espontánea de fácil resiembra natural; actúa como barrera aromática repelente contra nemátodos, pulgones y gusanos trozadores en las camas biointensivas."
                     }
                   ]
                 },
@@ -3456,24 +3336,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Albahaca de Monte y Tagetes ("
+                      "t": "strong",
+                      "v": "Albahaca de Monte y Tagetes (Tagetes lucida / erecta):"
                     },
                     {
                       "t": "text",
-                      "v": "Tagetes lucida / erecta"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Flores polinizadoras y nematicidas naturales que atraen fauna benéfica y embellecen los senderos del recorrido agroturístico."
+                      "v": " Flores polinizadoras y nematicidas naturales que atraen fauna benéfica y embellecen los senderos del recorrido agroturístico."
                     }
                   ]
                 }
@@ -3515,24 +3383,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Tajonal ("
+                      "t": "strong",
+                      "v": "Tajonal (Viguiera dentata):"
                     },
                     {
                       "t": "text",
-                      "v": "Viguiera dentata"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Arbusto nativo de floración invernal dorada masiva (noviembre a febrero); es la fuente nectarífera principal de Yucatán que activa el pecoreo y fortalecimiento de las colonias."
+                      "v": " Arbusto nativo de floración invernal dorada masiva (noviembre a febrero); es la fuente nectarífera principal de Yucatán que activa el pecoreo y fortalecimiento de las colonias."
                     }
                   ]
                 },
@@ -3542,24 +3398,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Dzidzilché ("
+                      "t": "strong",
+                      "v": "Dzidzilché (Gymnopodium floribundum):"
                     },
                     {
                       "t": "text",
-                      "v": "Gymnopodium floribundum"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Arbusto endémico de floración primaveral aromática; produce la miel más emblemática, aromática y cotizada de la península."
+                      "v": " Arbusto endémico de floración primaveral aromática; produce la miel más emblemática, aromática y cotizada de la península."
                     }
                   ]
                 },
@@ -3569,24 +3413,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Flor de Mayo ("
+                      "t": "strong",
+                      "v": "Flor de Mayo (Plumeria rubra):"
                     },
                     {
                       "t": "text",
-                      "v": "Plumeria rubra"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Especie rústica adaptada a suelos calcáreos con profusa floración primaveral y estival de alto atractivo melífero, ornamental y gastronómico."
+                      "v": " Especie rústica adaptada a suelos calcáreos con profusa floración primaveral y estival de alto atractivo melífero, ornamental y gastronómico."
                     }
                   ]
                 },
@@ -3596,24 +3428,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Campanilla / Conchita ("
+                      "t": "strong",
+                      "v": "Campanilla / Conchita (Ipomoea carnea / Clitoria ternatea):"
                     },
                     {
                       "t": "text",
-                      "v": "Ipomoea carnea / Clitoria ternatea"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Enredaderas perennes de floración continua que aportan néctar a las abejas nativas y flores comestibles ricas en antocianinas."
+                      "v": " Enredaderas perennes de floración continua que aportan néctar a las abejas nativas y flores comestibles ricas en antocianinas."
                     }
                   ]
                 },
@@ -3653,28 +3473,20 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Pitahaya ("
+                      "t": "strong",
+                      "v": "Pitahaya (Selenicereus undatus):"
                     },
                     {
                       "t": "text",
-                      "v": "Selenicereus undatus"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "em",
                       "v": " Cactácea epífita y litófita que crece y fructifica anclada directamente sobre albarradas de piedra y roca calcárea ("
                     },
                     {
+                      "t": "em",
+                      "v": "Tzek'el"
+                    },
+                    {
                       "t": "text",
-                      "v": "Tzek'el*) con mínimo sustrato edáfico. Fruto de exportación de alto valor gastronómico con demanda creciente en Europa y EE. UU."
+                      "v": ") con mínimo sustrato edáfico. Fruto de exportación de alto valor gastronómico con demanda creciente en Europa y EE. UU."
                     }
                   ]
                 },
@@ -3684,24 +3496,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Naranja Agria ("
+                      "t": "strong",
+                      "v": "Naranja Agria (Citrus aurantium):"
                     },
                     {
                       "t": "text",
-                      "v": "Citrus aurantium"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Árbol emblemático de los solares mayas; tolerante a la caliza y base irreemplazable de los recados y marinados tradicionales de Yucatán. Su resistencia lo convierte además en el portainjerto ideal para cítricos finos."
+                      "v": " Árbol emblemático de los solares mayas; tolerante a la caliza y base irreemplazable de los recados y marinados tradicionales de Yucatán. Su resistencia lo convierte además en el portainjerto ideal para cítricos finos."
                     }
                   ]
                 },
@@ -3711,32 +3511,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Ciruela Yucateca / Chi'abal ("
+                      "t": "strong",
+                      "v": "Ciruela Yucateca / Chi'abal (Spondias purpurea) y Guanábana Criolla (Annona muricata):"
                     },
                     {
                       "t": "text",
-                      "v": "Spondias purpurea"
-                    },
-                    {
-                      "t": "em",
-                      "v": ") y Guanábana Criolla ("
-                    },
-                    {
-                      "t": "text",
-                      "v": "Annona muricata"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Frutales adaptados al régimen de sequía invernal y lluvias estivales, aportando pulpas gourmet para la línea de valor agregado (fermentos, mermeladas y deshidratados)."
+                      "v": " Frutales adaptados al régimen de sequía invernal y lluvias estivales, aportando pulpas gourmet para la línea de valor agregado (fermentos, mermeladas y deshidratados)."
                     }
                   ]
                 }
@@ -3761,24 +3541,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Chaca o Palo Mulato ("
+                      "t": "strong",
+                      "v": "Chaca o Palo Mulato (Bursera simaruba):"
                     },
                     {
                       "t": "text",
-                      "v": "Bursera simaruba"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Árbol de corteza resinosa con extraordinaria capacidad de propagación por estacas vivas enterradas directamente en pedregal. Se utiliza para conformar cercos vivos perimetrales y cortinas rompevientos contra los \"nortes\" invernales."
+                      "v": " Árbol de corteza resinosa con extraordinaria capacidad de propagación por estacas vivas enterradas directamente en pedregal. Se utiliza para conformar cercos vivos perimetrales y cortinas rompevientos contra los \"nortes\" invernales."
                     }
                   ]
                 },
@@ -3788,24 +3556,12 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Ramón ("
+                      "t": "strong",
+                      "v": "Ramón (Brosimum alicastrum):"
                     },
                     {
                       "t": "text",
-                      "v": "Brosimum alicastrum"
-                    },
-                    {
-                      "t": "em",
-                      "v": "):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "* Árbol sagrado maya de hoja perenne que provee sombra densa para áreas de descanso y talleres vivenciales, follaje de alto contenido proteico para composta y semillas ricas en minerales libres de gluten."
+                      "v": " Árbol sagrado maya de hoja perenne que provee sombra densa para áreas de descanso y talleres vivenciales, follaje de alto contenido proteico para composta y semillas ricas en minerales libres de gluten."
                     }
                   ]
                 }
@@ -3864,27 +3620,27 @@
                   "title": "1. Ámbito Federal",
                   "sub": "Capital Humano & Empleo",
                   "bullets": [
-                    "**STPS — Jóvenes Construyendo el Futuro:** 2 becarios ($181,728.00 MXN/año en becas 100% cubiertas e IMSS).",
-                    "**Bienestar — Sembrando Vida:** Asesoría técnica e integración agroforestal (Etapa 2).",
-                    "**SADER — Producción para el Bienestar:** Apoyos directos por hectárea en transición agroecológica."
+                    "STPS — Jóvenes Construyendo el Futuro: 2 becarios ($181,728.00 MXN/año en becas 100% cubiertas e IMSS).",
+                    "Bienestar — Sembrando Vida: Asesoría técnica e integración agroforestal (Etapa 2).",
+                    "SADER — Producción para el Bienestar: Apoyos directos por hectárea en transición agroecológica."
                   ]
                 },
                 {
                   "title": "2. Ámbito Estatal (Yucatán)",
                   "sub": "Tecnificación & Fondo Perdido",
                   "bullets": [
-                    "**SEDER — \"Peso a Peso\":** Reembolso del 50% en equipamiento hidroagrícola y mallas ($24,500.00 MXN).",
-                    "**IYEM — Microyuc Verde / Mujeres:** Créditos blandos (tasa cero o preferencial) de $25,000.00 a $100,000.00 MXN.",
-                    "**SEMUJERES:** Fondo productivo para mujeres rurales en equipamiento de valor agregado."
+                    "SEDER — \"Peso a Peso\": Reembolso del 50% en equipamiento hidroagrícola y mallas ($24,500.00 MXN).",
+                    "IYEM — Microyuc Verde / Mujeres: Créditos blandos (tasa cero o preferencial) de $25,000.00 a $100,000.00 MXN.",
+                    "SEMUJERES: Fondo productivo para mujeres rurales en equipamiento de valor agregado."
                   ]
                 },
                 {
                   "title": "3. Ámbito Municipal (Mérida)",
                   "sub": "Comercialización & Entorno",
                   "bullets": [
-                    "**Círculo 47 (Ayto. Mérida):** Plataforma oficial de enlace comercial de comisarías con el sector restaurantero.",
-                    "**Caja de Campo:** Venta directa de canastas agroecológicas sin intermediarios.",
-                    "**Reserva Cuxtal:** Incentivos del Fondo Ambiental por preservación de polinizadores nativos."
+                    "Círculo 47 (Ayto. Mérida): Plataforma oficial de enlace comercial de comisarías con el sector restaurantero.",
+                    "Caja de Campo: Venta directa de canastas agroecológicas sin intermediarios.",
+                    "Reserva Cuxtal: Incentivos del Fondo Ambiental por preservación de polinizadores nativos."
                   ]
                 }
               ]
@@ -3892,7 +3648,7 @@
             {
               "type": "callout",
               "title": "Impacto Financiero de los Subsidios en la Fase Piloto",
-              "body": "La gestión institucional oportuna de **STPS Jóvenes Construyendo el Futuro** y el programa estatal **SEDER Peso a Peso** inyecta un apalancamiento equivalente a **$206,228.00 MXN** durante el primer año (absorción de 2 aprendices por $181,728.00 MXN y recuperación de hasta $24,500.00 MXN en equipamiento físico), multiplicando el retorno del capital propio sin comprometer liquidez."
+              "body": "La gestión institucional oportuna de STPS Jóvenes Construyendo el Futuro y el programa estatal SEDER Peso a Peso inyecta un apalancamiento equivalente a $206,228.00 MXN durante el primer año (absorción de 2 aprendices por $181,728.00 MXN y recuperación de hasta $24,500.00 MXN en equipamiento físico), multiplicando el retorno del capital propio sin comprometer liquidez."
             }
           ]
         },
@@ -5708,23 +5464,15 @@
               "tokens": [
                 {
                   "t": "text",
-                  "v": "Mérida (designada Ciudad Creativa de la UNESCO en el ámbito de la Gastronomía) y los corredores turísticos de la Riviera Maya y Tulum experimentan una demanda sin precedentes de vegetales de especialidad, hojas gourmet y brotes de frescura insuperable. Sin embargo, un motor comercial de extraordinario dinamismo y volumen en Yucatán, a menudo desatendido por la producción agrícola convencional, es la *"
+                  "v": "Mérida (designada Ciudad Creativa de la UNESCO en el ámbito de la Gastronomía) y los corredores turísticos de la Riviera Maya y Tulum experimentan una demanda sin precedentes de vegetales de especialidad, hojas gourmet y brotes de frescura insuperable. Sin embargo, un motor comercial de extraordinario dinamismo y volumen en Yucatán, a menudo desatendido por la producción agrícola convencional, es la "
                 },
                 {
-                  "t": "em",
-                  "v": "industria de banquetes, eventos sociales de gala y bodas de destino ("
-                },
-                {
-                  "t": "text",
-                  "v": "Destination Weddings"
-                },
-                {
-                  "t": "em",
-                  "v": ")"
+                  "t": "strong",
+                  "v": "industria de banquetes, eventos sociales de gala y bodas de destino (Destination Weddings)"
                 },
                 {
                   "t": "text",
-                  "v": "*:"
+                  "v": ":"
                 }
               ]
             },
@@ -6110,7 +5858,7 @@
             {
               "type": "callout",
               "title": "Sinergia Comercial de Alto Valor en San Pedro Chimay",
-              "body": "La proximidad inmediata a la **Hacienda San Pedro Chimay** (800 m) y al circuito de haciendas del sur de Mérida (Tahdzibichén, Teya, San Antonio Hool) convierte a Rancho Gema en el proveedor hiperlocal preferente de flores comestibles, brotes vivos y botánicos frescos para más de 1,200 bodas de destino anuales, asegurando cobros de contado con anticipos del 50% al 100% y cero merma agrícola."
+              "body": "La proximidad inmediata a la Hacienda San Pedro Chimay (800 m) y al circuito de haciendas del sur de Mérida (Tahdzibichén, Teya, San Antonio Hool) convierte a Rancho Gema en el proveedor hiperlocal preferente de flores comestibles, brotes vivos y botánicos frescos para más de 1,200 bodas de destino anuales, asegurando cobros de contado con anticipos del 50% al 100% y cero merma agrícola."
             }
           ]
         },
@@ -14966,7 +14714,7 @@
                     "Despliegue de infraestructura digital IN2TECHMX, e-commerce y bot WhatsApp",
                     "Validación comercial con primeros clientes HORECA, Slow Food y canastas",
                     "Célula financiera local (Gema Romero & Arturo de la Barrera) con supervisión financiera de Arturo Arnaiz",
-                    "**Meses 4 – 6:** Charlas, mesas de trabajo y deliberaciones del Comité para diseñar Etapa 1"
+                    "Meses 4 – 6: Charlas, mesas de trabajo y deliberaciones del Comité para diseñar Etapa 1"
                   ]
                 },
                 {
@@ -14986,7 +14734,7 @@
                   "bullets": [
                     "Expansión gradual a 3.00 HA con fertirriego por goteo para Chile Habanero con DO",
                     "Bancales de flores de especialidad (corte y comestibles para banquetes en haciendas)",
-                    "Instalación del Apiario / Meliponario (*Melipona beecheii* / Xunan Kab)",
+                    "Instalación del Apiario / Meliponario (Melipona beecheii / Xunan Kab)",
                     "Activación en temporada alta de banquetes y bodas de destino (Wedding Planners)",
                     "Absorción de subsidios gestionados por Dirección Legal (SEDER Peso a Peso, IYEM)",
                     "Logro sostenido del punto de equilibrio operativo mensual (Meses 5 a 9 según escenario)"
@@ -14997,7 +14745,7 @@
                   "title": "DECISION GATE 2 — Auditoría Integral Etapa 1",
                   "tag": "Mes 24",
                   "isGate": true,
-                  "desc": "Evaluación colegiada para autorizar la transición a la Etapa 2 (4.50 HA): Agroforestería *Sembrando Vida*, huertos de cítricos, nave agroindustrial y exportación certificada.",
+                  "desc": "Evaluación colegiada para autorizar la transición a la Etapa 2 (4.50 HA): Agroforestería Sembrando Vida, huertos de cítricos, nave agroindustrial y exportación certificada.",
                   "bullets": []
                 },
                 {
@@ -15007,7 +14755,7 @@
                   "isGate": false,
                   "desc": "",
                   "bullets": [
-                    "Cosechas masivas de Chile Habanero y primera cosecha de miel medicinal *melipona*",
+                    "Cosechas masivas de Chile Habanero y primera cosecha de miel medicinal melipona",
                     "Cartera de 12+ restaurantes gourmet y 5 agencias de Wedding Planning consolidadas",
                     "Lanzamiento de Academia de Saberes Agroecológicos y paquetes agroturísticos",
                     "Preparación documental para certificación orgánica nacional e internacional (SENASICA / NOM-037)"
@@ -15018,7 +14766,7 @@
             {
               "type": "callout",
               "title": "Síntesis Temporal del Roadmap a 24 Meses",
-              "body": "**Piloto (Meses 1 a 6):** Validación en 1.00 HA · Punto de equilibrio entre el Mes 3 y el Mes 9 según escenario · Células financieras activas · Decision Gate 1 colegiado en el Mes 6. | **Etapa 1 (Meses 7 a 24):** Escalamiento a 3.00 HA · Flores, meliponario y temporada alta de bodas · Subsidios SEDER absorbidos. | **Etapa 2 (Año 3+):** 4.50 HA · Miel medicinal · Exportación · Academia Agroecológica."
+              "body": "Piloto (Meses 1 a 6): Validación en 1.00 HA · Punto de equilibrio entre el Mes 3 y el Mes 9 según escenario · Células financieras activas · Decision Gate 1 colegiado en el Mes 6. | Etapa 1 (Meses 7 a 24): Escalamiento a 3.00 HA · Flores, meliponario y temporada alta de bodas · Subsidios SEDER absorbidos. | Etapa 2 (Año 3+): 4.50 HA · Miel medicinal · Exportación · Academia Agroecológica."
             }
           ]
         },
@@ -15519,23 +15267,15 @@
                     },
                     {
                       "t": "text",
-                      "v": " Apertura gradual y acondicionamiento de tierras con fertirriego por goteo automatizado para el cultivo intensivo de *"
+                      "v": " Apertura gradual y acondicionamiento de tierras con fertirriego por goteo automatizado para el cultivo intensivo de "
                     },
                     {
-                      "t": "em",
-                      "v": "Chile Habanero ("
-                    },
-                    {
-                      "t": "text",
-                      "v": "Capsicum chinense"
-                    },
-                    {
-                      "t": "em",
-                      "v": ")"
+                      "t": "strong",
+                      "v": "Chile Habanero (Capsicum chinense)"
                     },
                     {
                       "t": "text",
-                      "v": "* bajo Denominación de Origen Península de Yucatán (hasta alcanzar 3.00 HA)."
+                      "v": " bajo Denominación de Origen Península de Yucatán (hasta alcanzar 3.00 HA)."
                     }
                   ]
                 },
@@ -15560,24 +15300,8 @@
                   "marker": "-",
                   "tokens": [
                     {
-                      "t": "text",
-                      "v": "*"
-                    },
-                    {
-                      "t": "em",
-                      "v": "Establecimiento del Apiario / Meliponario de Abeja Melipona ("
-                    },
-                    {
-                      "t": "text",
-                      "v": "Melipona beecheii"
-                    },
-                    {
-                      "t": "em",
-                      "v": " / Xunan Kab):"
-                    },
-                    {
-                      "t": "text",
-                      "v": "*"
+                      "t": "strong",
+                      "v": "Establecimiento del Apiario / Meliponario de Abeja Melipona (Melipona beecheii / Xunan Kab):"
                     }
                   ]
                 },
@@ -16389,7 +16113,7 @@
                   "title": "Nivel 1 — Gastos Menores en Rancho",
                   "tag": "Hasta $5,000.00 MXN",
                   "isGate": false,
-                  "desc": "**Ejecutor:** Arturo de la Barrera (Gerente Operativo) **Instrumento:** Fondo Revolvente de Caja Chica ($10,000.00 MXN en efectivo) **Conceptos:** Combustibles, refacciones urgentes de riego, consumibles locales, jornales eventuales **Control:** CFDI o nota firmada · Corte y rendición semanal a Gema Romero",
+                  "desc": "Ejecutor: Arturo de la Barrera (Gerente Operativo) Instrumento: Fondo Revolvente de Caja Chica ($10,000.00 MXN en efectivo) Conceptos: Combustibles, refacciones urgentes de riego, consumibles locales, jornales eventuales Control: CFDI o nota firmada · Corte y rendición semanal a Gema Romero",
                   "bullets": []
                 },
                 {
@@ -16397,7 +16121,7 @@
                   "title": "Nivel 2 — Compras Operativas & Reabastecimiento",
                   "tag": "$5,001.00 – $25,000.00 MXN",
                   "isGate": false,
-                  "desc": "**Ejecutores:** Visto Bueno mancomunado Arturo de la Barrera + Gema Romero **Instrumento:** Transferencia electrónica bancaria desde la cuenta en México **Conceptos:** Lotes de semillas, rollos de malla sombra, tambos de bioinsumos, empaques **Control:** Cotización en expediente digital · Dispersión ejecutada por Gema Romero",
+                  "desc": "Ejecutores: Visto Bueno mancomunado Arturo de la Barrera + Gema Romero Instrumento: Transferencia electrónica bancaria desde la cuenta en México Conceptos: Lotes de semillas, rollos de malla sombra, tambos de bioinsumos, empaques Control: Cotización en expediente digital · Dispersión ejecutada por Gema Romero",
                   "bullets": []
                 },
                 {
@@ -16405,7 +16129,7 @@
                   "title": "Nivel 3 — Inversiones Estratégicas & Contratos Mayores",
                   "tag": "> $25,000.00 MXN",
                   "isGate": false,
-                  "desc": "**Ejecutor:** Comité de Dirección General — consenso unánime de los 3 socios **Instrumento:** Transferencia bancaria institucional con doble factor de autenticación **Conceptos:** Perforaciones adicionales, electrificación, tecnificación Etapa 1, vehículos **Control:** Minuta del Comité · Auditoría remota en tiempo real por Arturo Arnaiz",
+                  "desc": "Ejecutor: Comité de Dirección General — consenso unánime de los 3 socios Instrumento: Transferencia bancaria institucional con doble factor de autenticación Conceptos: Perforaciones adicionales, electrificación, tecnificación Etapa 1, vehículos Control: Minuta del Comité · Auditoría remota en tiempo real por Arturo Arnaiz",
                   "bullets": []
                 }
               ]
@@ -17190,7 +16914,7 @@
             {
               "type": "callout",
               "title": "Dictamen de Viabilidad — IN2TECHMX (Versión V3.2)",
-              "body": "**1. Edafo-Climática ✓** Suelo Kankab + acuífero cárstico · Ventana de invierno Nov–Mar optimizada para cultivos gourmet. | **2. Financiera ✓** $169,273.00 MXN · Reserva de liquidez 6 meses · Break-even M5 (normal) · Payback M11. | **3. Comercial ✓** 7 canales omnicanal · Márgenes >65% · Sin intermediarios · Cobro de contado. | **4. Gobernanza ✓** Comité colegiado · Célula financiera local + supervisión financiera remota · WBS trazable."
+              "body": "1. Edafo-Climática ✓ Suelo Kankab + acuífero cárstico · Ventana de invierno Nov–Mar optimizada para cultivos gourmet. | 2. Financiera ✓ $169,273.00 MXN · Reserva de liquidez 6 meses · Break-even M5 (normal) · Payback M11. | 3. Comercial ✓ 7 canales omnicanal · Márgenes >65% · Sin intermediarios · Cobro de contado. | 4. Gobernanza ✓ Comité colegiado · Célula financiera local + supervisión financiera remota · WBS trazable."
             },
             {
               "type": "signatures",

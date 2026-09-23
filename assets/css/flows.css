@@ -1,0 +1,102 @@
+/* ==========================================================================
+   GEMA V3.2 — flows.css
+   MOD-GEMA32-FLOWS · Flujos animados (fondos, cadena de valor, tesorería).
+   ========================================================================== */
+
+.flow {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: linear-gradient(180deg, var(--surface-2), transparent);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+/* Trazos: guiones en movimiento continuo (se detienen con movimiento reducido) */
+.flow-link__line {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 2;
+  stroke-dasharray: 7 7;
+  animation: flow-dash 16s linear infinite;
+}
+.flow-link__t {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  fill: var(--text-3);
+}
+
+@keyframes flow-dash {
+  to { stroke-dashoffset: -280; }
+}
+
+/* Nodos */
+.flow-node { cursor: pointer; transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
+.flow-node:hover { transform: translateY(-2px); }
+.flow-node:focus-visible { outline: none; }
+.flow-node:focus-visible rect { stroke-width: 3.5; }
+.flow-node__t { font-family: var(--font-display); font-size: 12.5px; font-weight: 700; fill: var(--text); }
+.flow-node__s { font-size: 9.5px; fill: var(--text-3); }
+.flow-node[aria-pressed="true"] rect { stroke-width: 3; fill-opacity: 0.26; }
+
+/* Panel de detalle */
+.flow-detail {
+  margin-top: var(--sp-4);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  padding: var(--sp-4) var(--sp-5);
+}
+.flow-detail__head { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+.flow-detail__t { font-family: var(--font-display); font-size: var(--fs-h3); margin: 0 0 0.4rem; }
+.flow-detail__list { margin: 0; padding-left: 1.15rem; font-size: var(--fs-xs); color: var(--text-2); }
+.flow-detail__list li { margin-bottom: 0.35rem; }
+
+/* Cadena de valor: etapas en tarjetas */
+.flow-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.flow-stage {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brand);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  padding: var(--sp-3) var(--sp-4);
+}
+.flow-stage--out { border-top-color: var(--accent); }
+.flow-stage__t { font-family: var(--font-display); font-size: var(--fs-sm); margin: 0 0 0.4rem; }
+.flow-stage__list { margin: 0; padding-left: 1.05rem; font-size: var(--fs-xxs); color: var(--text-2); }
+.flow-stage__list li { margin-bottom: 0.25rem; }
+
+/* Escalera de autorizaciones */
+.flow-ladder { display: grid; gap: var(--sp-3); margin-top: var(--sp-4); }
+.flow-rung {
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--brand);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  padding: var(--sp-3) var(--sp-4);
+  transition: transform var(--t-fast) var(--ease);
+}
+.flow-rung:hover { transform: translateX(4px); }
+.flow-rung__head { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+.flow-rung__t { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-sm); }
+.flow-rung__dl {
+  margin: 0.4rem 0 0;
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0.3rem var(--sp-3);
+  font-size: var(--fs-xxs);
+}
+.flow-rung__dl dt { font-weight: 700; color: var(--brand-2); }
+.flow-rung__dl dd { margin: 0; color: var(--text-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-link__line,
+  .flow-node,
+  .flow-rung { animation: none !important; transition: none !important; }
+}
