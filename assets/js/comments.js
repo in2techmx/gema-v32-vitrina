@@ -7,6 +7,7 @@
   'use strict';
 
   var STORAGE_KEY_COMMENTS = 'gema32.comments';
+  var STORAGE_KEY_VERSION = 'gema32.comments_clean_v1';
 
   // Filtros activos por socio (por defecto todos activos)
   var activeFilters = {
@@ -22,6 +23,11 @@
   function getComments() {
     var list = [];
     try {
+      // Si es la primera vez con la versión limpia, reiniciar localStorage
+      if (!localStorage.getItem(STORAGE_KEY_VERSION)) {
+        localStorage.removeItem(STORAGE_KEY_COMMENTS);
+        localStorage.setItem(STORAGE_KEY_VERSION, 'clean');
+      }
       var raw = localStorage.getItem(STORAGE_KEY_COMMENTS);
       if (raw) {
         list = JSON.parse(raw);
@@ -30,14 +36,17 @@
       list = [];
     }
 
-    // Si está vacío, sembrar con los comentarios base de los socios
     if (!list || !list.length) {
-      if (global.GEMA_COMMENTS_DATA && Array.isArray(global.GEMA_COMMENTS_DATA)) {
+      if (global.GEMA_COMMENTS_DATA && Array.isArray(global.GEMA_COMMENTS_DATA) && global.GEMA_COMMENTS_DATA.length) {
         list = global.GEMA_COMMENTS_DATA.slice();
         saveComments(list);
       }
     }
     return list || [];
+  }
+
+  function clearAllComments() {
+    saveComments([]);
   }
 
   function saveComments(list) {
@@ -138,6 +147,7 @@
       '<div class="comments-drawer__foot">' +
         '<button type="button" class="btn btn--ghost" id="exportPdfBtn">📄 Exportar a PDF</button>' +
         '<button type="button" class="btn btn--ghost" id="exportJsonBtn">💾 Respaldo JSON</button>' +
+        '<button type="button" class="btn btn--ghost" id="clearAllCommentsBtn" title="Vaciar notas y comenzar desde cero" style="color:var(--text-3); font-size:11px;">🗑 Limpiar</button>' +
       '</div>';
 
     bindDrawerEvents();
@@ -158,6 +168,15 @@
           el.classList.remove('is-active-target');
         });
         renderDrawerMarkup();
+      });
+    }
+
+    var clearAllBtn = document.getElementById('clearAllCommentsBtn');
+    if (clearAllBtn) {
+      clearAllBtn.addEventListener('click', function () {
+        if (confirm('¿Deseas vaciar todas las anotaciones y comenzar desde cero?')) {
+          clearAllComments();
+        }
       });
     }
 
@@ -260,10 +279,10 @@
 
     if (!filtered.length) {
       container.innerHTML = 
-        '<div style="text-align:center; padding:var(--sp-4); color:var(--text-3); font-size:var(--fs-xs);">' +
+        '<div style="text-align:center; padding:var(--sp-4); color:var(--text-3); font-size:var(--fs-xs); line-height:1.5;">' +
           (currentTarget 
-            ? 'Aún no hay anotaciones para este bloque con los filtros seleccionados.<br><br>Sé el primero en aportar usando el formulario inferior.'
-            : 'No hay revisiones que coincidan con los filtros de socios activos.') +
+            ? 'Aún no hay anotaciones para este bloque.<br><br>Sé el primero en ingresar una observación usando el formulario inferior.'
+            : 'No hay revisiones registradas todavía.<br><br>Haz clic en el ícono 💬 de cualquier bloque o párrafo del documento para comenzar a agregar anotaciones.') +
         '</div>';
       return;
     }
@@ -630,6 +649,7 @@
     updateDocumentBadges: updateDocumentBadges,
     getComments: getComments,
     saveComments: saveComments,
+    clearAllComments: clearAllComments,
     exportCommentsToPdf: exportCommentsToPdf,
     exportCommentsToJson: exportCommentsToJson
   };
