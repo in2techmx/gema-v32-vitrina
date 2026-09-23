@@ -124,8 +124,8 @@
       ]
     },
     "closing": "Fin del Documento Ejecutivo — Plan de Negocios, Modelo Agroecológico y Presupuesto Detallado: Gema Agroecología (Nombre Preliminar) (Versión V3.2)",
-    "sourceSha256": "e42a6a991c4fe596993035eabeadbf043c8bb88365c16a068b00e7e460b39b68",
-    "dataSha256": "8ae376f80239a77bc50c020ec1c611d680d8f95b65f79fd50acc757ba6df64cd"
+    "sourceSha256": "32e5fd0aa79b7686d5e77c65d7cf468faa3395c69c2034d74a6c097e7ee3de48",
+    "dataSha256": "09393e712afbe2736ccd004c0aa8ad34cadec81f447ad0032d9054826895cdf6"
   },
   "chapters": [
     {
@@ -982,32 +982,6 @@
                       "v": " Labores físicas de campo, preparación de camas de cultivo, siembra, riego, mantenimiento del invernadero, deshierbe manual y apoyo en cosecha y selección bajo los estándares del proyecto (40 horas semanales cubiertas en el presupuesto operativo)."
                     }
                   ]
-                },
-                {
-                  "depth": 0,
-                  "ordered": false,
-                  "marker": "-",
-                  "tokens": [
-                    {
-                      "t": "strong",
-                      "v": "Encargado de Almacén e Instalaciones Rancho Gema (Don Chiyo / ID: USR-004):"
-                    }
-                  ]
-                },
-                {
-                  "depth": 1,
-                  "ordered": false,
-                  "marker": "-",
-                  "tokens": [
-                    {
-                      "t": "strong",
-                      "v": "Alcance y Funciones:"
-                    },
-                    {
-                      "t": "text",
-                      "v": " Custodia física de bodega y herramientas, supervisión del pozo de 18 m y bomba, mantenimiento de cercado y soporte logístico en finca."
-                    }
-                  ]
                 }
               ]
             },
@@ -1022,7 +996,7 @@
         "tables": 1,
         "figures": 2,
         "kpis": 4,
-        "words": 1213
+        "words": 1176
       }
     },
     {

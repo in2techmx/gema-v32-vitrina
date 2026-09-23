@@ -269,8 +269,6 @@ El proyecto articula una estructura directiva colegiada y multidisciplinaria que
     - *Arturo de la Barrera:* Custodia y administración de caja chica operativa en finca, dispersión de raya semanal a jornaleros locales de campo, compras directas de mostrador de insumos menores en Mérida/Chimay y comprobación semanal de gastos.
 - **Jornalero Agrícola Local (San Pedro Chimay / Timucuy):**
   - **Alcance y Funciones:** Labores físicas de campo, preparación de camas de cultivo, siembra, riego, mantenimiento del invernadero, deshierbe manual y apoyo en cosecha y selección bajo los estándares del proyecto (40 horas semanales cubiertas en el presupuesto operativo).
-- **Encargado de Almacén e Instalaciones Rancho Gema (Don Chiyo / ID: USR-004):**
-  - **Alcance y Funciones:** Custodia física de bodega y herramientas, supervisión del pozo de 18 m y bomba, mantenimiento de cercado y soporte logístico en finca.
 
 ---
 
