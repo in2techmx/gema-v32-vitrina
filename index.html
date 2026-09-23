@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Vitrina web interactiva del Documento Ejecutivo Maestro V3.2 de Gema Agroecología (Rancho Gema, San Pedro Chimay, Yucatán): 9 capítulos en tiles, texto íntegro y diagramas dinámicos.">
+<meta name="author" content="in2techmx">
+<meta name="generator" content="in2techmx Development Framework — PROJ-GEMA32-WEB-V1">
+<title>Gema Agroecología · Documento Ejecutivo V3.2 — Vitrina interactiva</title>
+
+<!-- Sin dependencias externas: cero CDN, todo local (AC-05.1) -->
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/content.css">
+<link rel="stylesheet" href="assets/css/viz.css">
+</head>
+<body>
+<a class="skip-link" href="#app">Saltar al contenido</a>
+<div class="readbar" id="readbar" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">GA</span>
+      <span class="brand__text">
+        <span class="brand__title">Gema Agroecología</span>
+        <span class="brand__sub">Documento Ejecutivo · V3.2</span>
+      </span>
+    </div>
+    <div class="topbar__spacer"></div>
+    <div class="searchbox">
+      <label for="search" class="sr-only" style="position:absolute;left:-9999px">Buscar en el documento</label>
+      <input id="search" type="search" placeholder="Buscar en los 9 capítulos…" autocomplete="off"
+             aria-label="Buscar en el documento" aria-controls="searchresults">
+      <div class="searchresults" id="searchresults" role="listbox" hidden></div>
+    </div>
+    <button class="btn btn--ghost" id="themeToggle" type="button">Tema claro</button>
+    <a class="btn" href="source/DOCUMENTO_EJECUTIVO_PROYECTO_CHIMAY_V3.2.pdf" target="_blank" rel="noopener">PDF oficial</a>
+  </div>
+</header>
+
+<main id="app" role="main"></main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <span>Gema Agroecología (Nombre Preliminar) · Rancho Gema, San Pedro Chimay, Yucatán</span>
+    <span>Vitrina generada desde el markdown oficial · cero cifras inventadas</span>
+    <span>Metodología IN2TECHMX · <a href="source/DOCUMENTO_EJECUTIVO_PROYECTO_CHIMAY_V3.2.pdf" target="_blank" rel="noopener">Documento Ejecutivo V3.2 (PDF)</a></span>
+  </div>
+</footer>
+
+<script src="data/document.data.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/router.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/tiles.js"></script>
+<script src="assets/js/viz/scenarios.js"></script>
+<script src="assets/js/viz/budget.js"></script>
+<script src="assets/js/viz/roadmap.js"></script>
+<script src="assets/js/viz/channels.js"></script>
+<script src="assets/js/viz/seeds.js"></script>
+<script src="assets/js/viz/subsidies.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
