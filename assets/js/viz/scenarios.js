@@ -37,8 +37,8 @@
   function keyFor(title) {
     var t = String(title).toUpperCase();
     if (t.indexOf('OPTIMISTA') >= 0) return 'optimista';
-    if (t.indexOf('PESIMISTA') >= 0) return 'pesimista';
-    if (t.indexOf('NORMAL') >= 0) return 'normal';
+    if (t.indexOf('PESIMISTA') >= 0 || t.indexOf('NEGATIVO') >= 0) return 'pesimista';
+    if (t.indexOf('NORMAL') >= 0 || t.indexOf('NEUTRAL') >= 0 || t.indexOf('MODERADO') >= 0) return 'normal';
     return null;
   }
 
@@ -46,8 +46,8 @@
    * @returns {{months:number, source:string, scenarios:Array}}
    */
   function buildScenarios(doc) {
-    // Los escenarios viven en el §7.11, dentro del CAPÍTULO 7 (presupuesto financiero).
-    var ch = findChapter(doc, 7);
+    // Los escenarios viven en el §8.5 (V4) o §7.11 (V3.2).
+    var ch = findChapter(doc, 8) || findChapter(doc, 7);
     var blocks = blocksOf(ch);
     var scenarios = [];
     var current = null;

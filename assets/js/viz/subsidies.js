@@ -20,7 +20,7 @@
 
   /** @returns {{levels:Array, matrix:Array, source:string}} */
   function buildSubsidies(doc) {
-    var ch = findChapter(doc, 4);
+    var ch = findChapter(doc, 5) || findChapter(doc, 4);
     var blocks = (ch && ch.sections || []).reduce(function (a, s) { return a.concat(s.blocks); }, []);
 
     var levels = [];
